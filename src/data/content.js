@@ -81,7 +81,7 @@ export const teamContact = {
   name: "Gökhan TONKAL",
   title: "İletişim Sorumlusu & YK Üyesi",
   email: "gokhan.tonkal@teamergenekon.org",
-  phone: "+90 538 770 42 52",
+
   linkedin: "https://linkedin.com/company/team-ergenekon",
   instagram: "https://www.instagram.com/team.ergenekon",
   linktree: "https://linktr.ee/ergenekon",
@@ -92,7 +92,7 @@ export const teamContact = {
 export const teamStructure = {
   // Liderlik
   leadership: [
-    { role: "Takım Kaptanı", name: "Abdullah ZAİNEL", image: "/images/members_images/abdullah_zainel.png" },
+    { role: "Takım Kaptanı", name: "Abdullah ZEYNEL", image: "/images/members_images/abdullah_.png" },
     { role: "Kaptan Yardımcısı", name: "Zeren KAVAZ", image: "/images/members_images/zeren_kavaz.png" }
   ],
   // Denetim Kurulu (1 Kişi)

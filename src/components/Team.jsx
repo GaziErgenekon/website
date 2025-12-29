@@ -84,13 +84,13 @@ const Team = () => {
                                 <div className="absolute bottom-0 right-0 w-8 h-8 
                                               border-b-2 border-r-2 border-yellow-500/50 rounded-br-2xl" />
 
-                                <div className="w-20 h-20 mx-auto mb-4 rounded-full 
-                                              bg-ergenekon-red/20 border border-ergenekon-red/40
+                                <div className="w-32 h-32 mx-auto mb-4 rounded-full 
+                                              bg-ergenekon-red/20 border-2 border-ergenekon-red/40
                                               flex items-center justify-center overflow-hidden">
                                     <img
                                         src={leader.image}
                                         alt={leader.name}
-                                        className="w-12 h-12 object-contain opacity-70"
+                                        className="w-28 h-28 object-cover rounded-full"
                                     />
                                 </div>
                                 <h4 className="font-orbitron text-white text-lg font-bold mb-1">
@@ -126,9 +126,9 @@ const Team = () => {
                                     className="w-48 p-4 text-center bg-black/30 rounded-xl
                                              border border-ergenekon-red/20"
                                 >
-                                    <div className="w-12 h-12 mx-auto mb-3 rounded-full 
-                                                  bg-ergenekon-panel flex items-center justify-center">
-                                        <img src={member.image} alt="" className="w-8 h-8 opacity-50" />
+                                    <div className="w-24 h-24 mx-auto mb-3 rounded-full 
+                                                  bg-ergenekon-panel border border-ergenekon-red/30 overflow-hidden">
+                                        <img src={member.image} alt="" className="w-24 h-24 object-cover" />
                                     </div>
                                     <p className="font-exo text-white text-sm">{member.name}</p>
                                     <p className="font-exo text-ergenekon-silver/50 text-xs">{member.role}</p>
@@ -158,9 +158,9 @@ const Team = () => {
                                              hover:border-ergenekon-bright/50
                                              transition-all duration-300"
                                 >
-                                    <div className="w-12 h-12 mx-auto mb-3 rounded-full 
-                                                  bg-ergenekon-panel flex items-center justify-center">
-                                        <img src={member.image} alt="" className="w-8 h-8 opacity-50" />
+                                    <div className="w-24 h-24 mx-auto mb-3 rounded-full 
+                                                  bg-ergenekon-panel border border-ergenekon-red/30 overflow-hidden">
+                                        <img src={member.image} alt="" className="w-24 h-24 object-cover" />
                                     </div>
                                     <p className="font-exo text-white text-sm font-medium">{member.name}</p>
                                     <p className="font-exo text-ergenekon-silver/50 text-xs mt-1">YK Üyesi</p>
@@ -221,12 +221,9 @@ const Team = () => {
                                                  hover:border-ergenekon-bright/30
                                                  transition-all duration-300"
                                     >
-                                        <div className="w-10 h-10 mx-auto mb-3 rounded-full 
-                                                      bg-ergenekon-red/10 flex items-center justify-center">
-                                            <svg className="w-5 h-5 text-ergenekon-bright/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                            </svg>
+                                        <div className="w-20 h-20 mx-auto mb-3 rounded-full 
+                                                      bg-ergenekon-red/10 border border-ergenekon-red/20 overflow-hidden">
+                                            <img src={member.image} alt="" className="w-20 h-20 object-cover" />
                                         </div>
                                         <p className="font-exo text-white text-sm">{member.name}</p>
                                         <p className="font-exo text-ergenekon-silver/50 text-xs">{member.role}</p>

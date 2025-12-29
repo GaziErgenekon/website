@@ -33,7 +33,7 @@ const Navbar = () => {
                         <img
                             src="/images/logo-full.png"
                             alt="Ergenekon R&D Team Logo"
-                            className="h-10 md:h-12 transition-transform duration-300 group-hover:scale-105"
+                            className="h-14 md:h-16 transition-transform duration-300 group-hover:scale-105"
                         />
                     </a>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="font-exo text-ergenekon-silver hover:text-ergenekon-bright 
+                                className="font-exo font-bold text-ergenekon-silver hover:text-ergenekon-bright 
                                          transition-colors duration-300 relative group"
                             >
                                 {link.name}
@@ -110,7 +110,7 @@ const Navbar = () => {
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="font-exo text-ergenekon-silver hover:text-ergenekon-bright 
+                                className="font-exo font-bold text-ergenekon-silver hover:text-ergenekon-bright 
                                          transition-all duration-300 py-4 px-4
                                          border-b border-ergenekon-red/10 last:border-0
                                          hover:bg-ergenekon-red/10 hover:pl-6
