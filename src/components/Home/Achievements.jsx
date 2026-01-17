@@ -43,9 +43,9 @@ const Achievements = () => {
               key={item.id}
               className="flex flex-col w-full md:flex-row gap-5 md:p-4 rounded-xl border border-secondary/10 bg-transparent hover:border-primary/40 transition-colors duration-300"
             >
-              <div className="w-full md:w-64 shrink-0 relative">
+              <div className="w-full md:w-[45%] shrink-0 relative">
                 <div
-                  className="h-48 md:h-48 rounded-lg overflow-hidden border border-secondary/5 cursor-pointer group/img"
+                  className="h-48 md:h-72 rounded-lg overflow-hidden border border-secondary/5 cursor-pointer group/img"
                   onClick={() => openImage(item.mainImage)}
                 >
                   <img

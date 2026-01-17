@@ -25,11 +25,11 @@ const Hero = () => {
                     bg-primary/20 blur-[120px] rounded-full animate-pulse-slow"
       />
 
-      <div className="relative z-10 section-container text-center">
+      <div className="relative text-center">
         <img
           src="/logo-full.png"
           alt="Ergenekon Logo"
-          className="w-48 sm:w-64 md:w-80 mx-auto mb-4 sm:mb-6 animate-pulse-slow hover:scale-110 hover:rotate-3 
+          className="w-48 sm:w-64 md:w-80 object-contain mx-auto mb-4 sm:mb-6 animate-pulse-slow hover:scale-110 hover:rotate-3 
                              transition-all duration-700 ease-out cursor-pointer
                              drop-shadow-[0_0_30px_rgba(220,38,38,0.5)]
                              hover:drop-shadow-[0_0_50px_rgba(220,38,38,0.9)]"
@@ -46,7 +46,7 @@ const Hero = () => {
         </p>
 
         <h1
-          className="title-glow font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 
+          className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 
                              font-bold text-white mb-4 sm:mb-6 tracking-tight px-4
                              transition-all duration-500 ease-out
                              hover:tracking-widest cursor-default
@@ -69,13 +69,13 @@ const Hero = () => {
 
         <p
           className="font-exo text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto 
-                    mb-8 sm:mb-10 leading-relaxed font-bold px-4
+                    mb-8 sm:mb-3 leading-relaxed font-bold px-4
                     hover:text-white transition-colors duration-300"
         >
           {heroContent.description}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center px-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
           <a href="#projects">
             <Button variant="default" colorMode="primary" size="lg">
               {heroContent.ctaPrimary}
