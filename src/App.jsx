@@ -1,19 +1,20 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-import ComingSoon from './components/ComingSoon'
-import MainSite from './components/MainSite'
+import { Route, Routes } from "react-router-dom"
+import MainLayout from "./layouts/MainLayout"
+import Home from "./pages/Home"
+import Error from "./pages/Error"
+
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                {/* Coming Soon - Ana sayfa */}
-                <Route path="/" element={<ComingSoon />} />
 
-                {/* Secret Page - Gerçek site */}
-                <Route path="/secret-page82" element={<MainSite />} />
-            </Routes>
-        </Router>
-    )
+
+  return (
+    <Routes>
+      <Route element={<MainLayout/>}>
+        <Route path="/" element={<Home />} />
+        <Route path="/*" element={<Error />} />
+      </Route>
+    </Routes>
+  )
 }
 
 export default App
