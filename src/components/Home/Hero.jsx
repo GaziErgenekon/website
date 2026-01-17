@@ -52,17 +52,19 @@ const Hero = () => {
                              hover:tracking-widest cursor-default
                              group"
         >
-          {heroContent.title.split(" ").map((word, index) => (
+          {heroContent.title.split(" ").map((word, index, arr) => (
             <span
               key={index}
-              className={`inline-block transition-all duration-300 
+              className={`inline-block transition-all duration-300 ${
+                index !== arr.length - 1 ? "mr-3 lg:mr-5" : ""
+              } 
                                       ${
                                         index === 0
                                           ? "text-primary drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] hover:drop-shadow-[0_0_35px_rgba(220,38,38,1)]"
                                           : "text-white hover:text-ergenekon-silver"
                                       }`}
             >
-              {word}{" "}
+              {word}
             </span>
           ))}
         </h1>
