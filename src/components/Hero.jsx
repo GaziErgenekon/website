@@ -55,7 +55,7 @@ const Hero = () => {
                     {heroContent.title.split(' ').map((word, index) => (
                         <span
                             key={index}
-                            className={`inline-block transition-all duration-300 
+                            className={`inline-block transition-all duration-300 mr-3 last:mr-0
                                       ${index === 0
                                     ? 'text-ergenekon-bright drop-shadow-[0_0_20px_rgba(220,38,38,0.8)] hover:drop-shadow-[0_0_35px_rgba(220,38,38,1)]'
                                     : 'text-white hover:text-ergenekon-silver'}`}
@@ -141,3 +141,4 @@ const Hero = () => {
 }
 
 export default Hero
+
