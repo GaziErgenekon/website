@@ -34,20 +34,19 @@ const Footer = () => {
             <div className="row-center gap-4 font-mono text-2xl font-semibold">
               <a href="https://gazisiber.org/" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/GaziErgenekon/cdn/main/src/website/logo-removebg-preview.png"
+                  src="/logo-removebg-preview.png"
                   alt="Logo"
                   className="h-16"
                 />
               </a>
               <Link to="/">
-                <img src="https://raw.githubusercontent.com/GaziErgenekon/cdn/main/src/website/Ergenekon.png" alt="Logo" className="h-16" />
+                <img src="/Ergenekon.png" alt="Logo" className="h-16" />
               </Link>
             </div>
             <p className="mt-6 text-sm lg:text-base">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis
-              reprehenderit, voluptatibus possimus eveniet maxime, corrupti
-              beatae magnam molestiae dolore quas atque voluptate.
-              Exercitationem quisquam culpa eaque at aut explicabo praesentium!
+              Milli Savunma ve İleri Teknoloji alanlarında yenilikçi, yerli ve
+              milli çözümler üreten; Gazi Üniversitesi bünyesinde faaliyet
+              gösteren köklü bir Ar-Ge topluluğuyuz.
             </p>
           </div>
 

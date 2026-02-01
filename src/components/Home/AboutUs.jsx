@@ -8,11 +8,11 @@ const AboutUs = () => {
           Hakkımızda
         </h3>
         <div className="col-center sm:!flex-row sm:justify-center gap-12 md:gap-24 my-24 ">
-          <img src="https://raw.githubusercontent.com/GaziErgenekon/cdn/main/src/website/Ergenekon.png" className="h-24 object-cover" alt="" />
+          <img src="/Ergenekon.png" className="h-24 object-cover" alt="" />
           <div className="w-full sm:w-[500px]">
             <h6 className="text-3xl font-semibold mb-2 row-center gap-4">
               <img
-                src="https://raw.githubusercontent.com/GaziErgenekon/cdn/main/src/website/hawk.png"
+                src="/hawk.png"
                 className="size-12 object-contain inset-shadow-sm inset-shadow-secondary/20 border border-secondary/5 bg-radial-[at_50%_75%] from-secondary/10 to-100% rounded-full p-1.5"
                 alt=""
               />

@@ -68,11 +68,11 @@ const Header = () => {
   return (
     <header
       className={`${pathname !== "/" || showNav
-          ? `${!isOpen && (animate ? "animate-nav-animate" : "animate-nav-exit")
-          } fixed bg-background border-b border-foreground/20`
-          : `${isOpen ? "max-md:fixed" : "absolute"} ${isOpen &&
-          "max-md:bg-background max-md:border-b max-md:border-foreground/20"
-          }`
+        ? `${!isOpen && (animate ? "animate-nav-animate" : "animate-nav-exit")
+        } fixed bg-background border-b border-foreground/20`
+        : `${isOpen ? "max-md:fixed" : "absolute"} ${isOpen &&
+        "max-md:bg-background max-md:border-b max-md:border-foreground/20"
+        }`
         } ${pathname !== "/" && "!animate-none"
         } top-0 left-0 w-full z-[999] transition-all  ${isOpen ? "max-md:h-screen" : "max-md:h-auto"
         } `}
@@ -84,14 +84,14 @@ const Header = () => {
         <div className="row-center gap-4 font-mono text-2xl font-semibold">
           <a href="https://gazisiber.org/" target="_blank">
             <img
-              src="https://raw.githubusercontent.com/GaziErgenekon/cdn/main/src/website/logo-removebg-preview.png"
+              src="/logo-removebg-preview.png"
               alt="Gazi-Siber-Logo"
               className="h-12 xls:h-16 "
             />
           </a>
           <Link to="/">
             <img
-              src="https://raw.githubusercontent.com/GaziErgenekon/cdn/main/src/website/Ergenekon.png"
+              src="/Ergenekon.png"
               alt="Ergenekon-Logo"
               className="h-12 xls:h-16"
             />
