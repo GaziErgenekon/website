@@ -66,7 +66,7 @@ const Footer = () => {
             <div className="inline-flex flex-col sm:ms-auto">
               <h6 className="font-semibold text-lg mb-3">Adres</h6>
               <div className="italic">
-                Lorem ipsum dolor sit amet consectetur.
+                Emniyet, Milas Sk. No:30, 06560 Yenimahalle/Ankara
               </div>
 
               <h6 className="font-semibold text-lg mt-3">İletişim</h6>
@@ -92,7 +92,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-12 text-center italic border-t pt-6">
-          © Copyright 2025. All Rights Reserved. Powered by Ergenekon
+          © Copyright 2025. All Rights Reserved. Powered by Ergenekon R&D Team
         </div>
       </div>
     </footer>
