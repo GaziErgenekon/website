@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import useScrollPosition from "../../hooks/useScrollPosition";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Dropdown from "../ui/Dropdown";
 import { IoIosArrowUp } from "react-icons/io";
 import Hamburger from "hamburger-react";
@@ -22,26 +22,42 @@ const Header = () => {
       href: "#projects",
     },
     { text: "Başarılar", href: "#achievements" },
+    {
+      text: "Faaliyetler",
+      isDropdown: true,
+      dropdownLinks: [
+        {
+          text: "IDEF'25",
+          isLink: true,
+          linkHref: "/idef",
+        },
+      ],
+    },
     { text: "Ekip", href: "#team" },
     { text: "İletişim", href: "#contact" },
   ];
 
-  useScrollPosition((scrollY) => {
-    if (scrollY > 700) {
-      if (!showNav) {
-        setAnimate(true);
-        setShowNav(true);
+  const handleScroll = useCallback(
+    (scrollY) => {
+      if (scrollY > 700) {
+        if (!showNav) {
+          setAnimate(true);
+          setShowNav(true);
+        }
+      } else {
+        if (showNav) {
+          setAnimate(false);
+          const timeout = setTimeout(() => {
+            setShowNav(false);
+          }, 400);
+          return () => clearTimeout(timeout);
+        }
       }
-    } else {
-      if (showNav) {
-        setAnimate(false);
-        const timeout = setTimeout(() => {
-          setShowNav(false);
-        }, 400);
-        return () => clearTimeout(timeout);
-      }
-    }
-  }, pathname !== "/");
+    },
+    [showNav]
+  );
+
+  useScrollPosition(handleScroll, pathname !== "/");
 
   const [openSubMenu, setOpenSubMenu] = useState(null);
 
@@ -57,6 +73,18 @@ const Header = () => {
       href: "#projects",
     },
     { key: "achievements", text: "Başarılar", href: "#achievements" },
+    {
+      key: "activities",
+      text: "Faaliyetler",
+      isSubMenu: true,
+      subMenuItems: [
+        {
+          key: "idef",
+          text: "IDEF'25",
+          href: "/idef",
+        },
+      ],
+    },
     { key: "team", text: "Ekip", href: "#team" },
     { key: "contact", text: "İletişim", href: "#contact" },
   ];
@@ -64,6 +92,37 @@ const Header = () => {
   const handleToggleSubMenu = (key) => {
     setOpenSubMenu(openSubMenu === key ? null : key);
   };
+
+  if (pathname === "/idef") {
+    return (
+      <header className="fixed top-0 left-0 w-full z-[999] bg-background/80 backdrop-blur-md border-b border-white/10 py-4 transition-all">
+        <div className="container flex items-center justify-between">
+          <div className="row-center gap-4 font-mono text-2xl font-semibold">
+            <a href="https://gazisiber.org/" target="_blank">
+              <img
+                src="/logo-removebg-preview.png"
+                alt="Gazi-Siber-Logo"
+                className="h-10 xls:h-14 "
+              />
+            </a>
+            <Link to="/">
+              <img
+                src="/Ergenekon.png"
+                alt="Ergenekon-Logo"
+                className="h-10 xls:h-14"
+              />
+            </Link>
+          </div>
+          <Link
+            to="/"
+            className="px-6 py-2 rounded-full border border-primary/50 text-foreground hover:bg-primary/10 transition-colors font-medium"
+          >
+            Anasayfa
+          </Link>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header

@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout"
 import Loading from "./components/ui/Loading"
 
 const Home = lazy(() => import("./pages/Home"))
+const Idef = lazy(() => import("./pages/Idef"))
 const Error = lazy(() => import("./pages/Error"))
 
 
@@ -16,6 +17,11 @@ function App() {
         <Route path="/" element={
           <Suspense fallback={<Loading />}>
             <Home />
+          </Suspense>
+        } />
+        <Route path="/idef" element={
+          <Suspense fallback={<Loading />}>
+            <Idef />
           </Suspense>
         } />
         <Route path="/*" element={

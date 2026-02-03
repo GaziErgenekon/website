@@ -110,6 +110,7 @@ export const achievements = [
   {
     id: 4,
     title: "BURKAY Hava Savunma",
+    link: "/idef",
     desc: "TEKNOFEST Hava Savunma Sistemleri Yarışması kapsamında geliştirdiğimiz yerli ve milli hava savunma sistemi projemiz BURKAY; Yapay Zeka Destekli Hedef Tespiti ve Tam Otonom Lazer Güdüm kabiliyetleriyle donatılmıştır. Kritik Tasarım Raporu (KTR) sürecini başarıyla tamamlayan projemiz; ayrıca dünyanın en prestijli savunma sanayi fuarlarından biri olan IDEF'25 Uluslararası Savunma Sanayii Fuarı'na kabul edilmiştir. Fuar süresince açtığımız standımızda; geliştirdiğimiz çözümleri ve savunma teknolojileri vizyonumuzu uluslararası profesyonellere sunduk.",
     mainImage: "/oduller/idef_burkay.JPG",
     thumbnails: [

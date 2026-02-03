@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { FaAward } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import ImageViewer from "../common/ImageViewer";
 import { achievements } from "../../constants";
 import Carousel from "../ui/Carousel";
 
 const Achievements = () => {
+  const navigate = useNavigate();
   const [viewer, setViewer] = useState({ isOpen: false, url: "" });
 
   const openImage = (url) => {
@@ -46,16 +48,19 @@ const Achievements = () => {
               <div className="w-full md:w-[45%] shrink-0 relative">
                 <div
                   className="h-48 md:h-72 rounded-lg overflow-hidden border border-secondary/5 cursor-pointer group/img"
-                  onClick={() => openImage(item.mainImage)}
+                  onClick={() =>
+                    item.link ? navigate(item.link) : openImage(item.mainImage)
+                  }
                 >
                   <img
                     src={item.mainImage}
                     alt={item.title}
-                    className={`size-full ${item.imageFit || "object-cover"} group-hover/img:scale-105 transition-transform duration-500`}
+                    className={`size-full ${item.imageFit || "object-cover"
+                      } group-hover/img:scale-105 transition-transform duration-500`}
                   />
                   <div className="absolute inset-0 bg-background/30 opacity-0 group-hover/img:opacity-100 transition-opacity flex-center">
                     <span className="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded">
-                      Büyüt
+                      {item.link ? "İncele" : "Büyüt"}
                     </span>
                   </div>
                 </div>
