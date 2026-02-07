@@ -4,6 +4,9 @@ import { useState, useCallback } from "react";
 import Dropdown from "../ui/Dropdown";
 import { IoIosArrowUp } from "react-icons/io";
 import Hamburger from "hamburger-react";
+import clsx from "clsx";
+import Button from "../ui/Button";
+import { useEffect } from "react";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
@@ -93,52 +96,28 @@ const Header = () => {
     setOpenSubMenu(openSubMenu === key ? null : key);
   };
 
-  if (pathname === "/idef") {
-    return (
-      <header className="fixed top-0 left-0 w-full z-[999] bg-background/80 backdrop-blur-md border-b border-white/10 py-4 transition-all">
-        <div className="container flex items-center justify-between">
-          <div className="row-center gap-4 font-mono text-2xl font-semibold">
-            <a href="https://gazisiber.org/" target="_blank">
-              <img
-                src="/logo-removebg-preview.png"
-                alt="Gazi-Siber-Logo"
-                className="h-10 xls:h-14 "
-              />
-            </a>
-            <Link to="/">
-              <img
-                src="/Ergenekon.png"
-                alt="Ergenekon-Logo"
-                className="h-10 xls:h-14"
-              />
-            </Link>
-          </div>
-          <Link
-            to="/"
-            className="px-6 py-2 rounded-full border border-primary/50 text-foreground hover:bg-primary/10 transition-colors font-medium"
-          >
-            Anasayfa
-          </Link>
-        </div>
-      </header>
-    );
-  }
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+  
+
+  const isHomePage = pathname === "/";
+
+  const headerClassname = clsx(
+    !isHomePage || showNav
+      ? `${!isOpen && isHomePage && (animate ? "animate-nav-animate" : "animate-nav-exit")} fixed bg-background border-b border-foreground/20`
+      : `${isOpen ? "max-md:fixed" : "absolute"} ${isOpen && "max-md:bg-background max-md:border-b max-md:border-foreground/20"}`,
+    !isHomePage && " animate-nav-animate",
+    isOpen && isHomePage ? "max-md:h-screen" : "max-md:h-auto",
+    "top-0 left-0 w-full z-[999] transition-all",
+  );
 
   return (
-    <header
-      className={`${pathname !== "/" || showNav
-        ? `${!isOpen && (animate ? "animate-nav-animate" : "animate-nav-exit")
-        } fixed bg-background border-b border-foreground/20`
-        : `${isOpen ? "max-md:fixed" : "absolute"} ${isOpen &&
-        "max-md:bg-background max-md:border-b max-md:border-foreground/20"
-        }`
-        } ${pathname !== "/" && "!animate-none"
-        } top-0 left-0 w-full z-[999] transition-all  ${isOpen ? "max-md:h-screen" : "max-md:h-auto"
-        } `}
-    >
+    <header className={headerClassname}>
       <div
-        className={`container flex-between ${pathname !== "/" || (!showNav && "border-b border-foreground")
-          } py-6`}
+        className={`container flex-between ${
+          !isHomePage || (!showNav && "border-b border-foreground")
+        } py-6`}
       >
         <div className="row-center gap-4 font-mono text-2xl font-semibold">
           <a href="https://gazisiber.org/" target="_blank">
@@ -157,39 +136,48 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav>
-          <div className="md:hidden">
-            <Hamburger toggled={isOpen} toggle={setOpen} />
-          </div>
-          <ul className="hidden md:flex items-center gap-6 font-semibold">
-            {items.map((item, index) => (
-              <li
-                className={`after:content-[''] relative after:absolute after:left-1/2 after:-bottom-1 ${!item.isDropdown && " hover:after:w-full hover:after:left-0"
+        {isHomePage ? (
+          <nav>
+            <div className="md:hidden">
+              <Hamburger toggled={isOpen} toggle={setOpen} />
+            </div>
+            <ul className="hidden md:flex items-center gap-6 font-semibold">
+              {items.map((item, index) => (
+                <li
+                  className={`after:content-[''] relative after:absolute after:left-1/2 after:-bottom-1 ${
+                    !item.isDropdown && " hover:after:w-full hover:after:left-0"
                   } after:h-[1.5px] after:transition-all after:duration-500 after:w-0 after:bg-foreground`}
-                key={index}
-              >
-                {item.isDropdown ? (
-                  <Dropdown
-                    listClassname="!translate-y-1"
-                    itemClassname="text-base "
-                    isHoverTrigger
-                    trigger={
-                      <div className="row-center gap-3">
-                        {item.text}
-                        <IoIosArrowUp className="dropdown-rotate-arrow-icon" />
-                      </div>
-                    }
-                    listItems={item.dropdownLinks}
-                  />
-                ) : (
-                  <a href={item.href}>{item.text}</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  key={index}
+                >
+                  {item.isDropdown ? (
+                    <Dropdown
+                      listClassname="!translate-y-1"
+                      itemClassname="text-base "
+                      isHoverTrigger
+                      trigger={
+                        <div className="row-center gap-3">
+                          {item.text}
+                          <IoIosArrowUp className="dropdown-rotate-arrow-icon" />
+                        </div>
+                      }
+                      listItems={item.dropdownLinks}
+                    />
+                  ) : (
+                    <a href={item.href}>{item.text}</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : (
+          <Button variant="radial" colorMode="primary" size="lg" className="rounded-full px-8">
+            <Link to="/">
+              Ana Sayfa
+            </Link>
+          </Button>
+        )}
       </div>
-      {isOpen && (
+      {isOpen && isHomePage && (
         <div className="md:hidden border-t max-h-[calc(100vh-113px)] overflow-y-auto border-foreground/20 py-6">
           <ul className="col-start gap-4 font-semibold container mx-auto px-6">
             {toggleMenuItems.map((item) => (
@@ -202,13 +190,15 @@ const Header = () => {
                     >
                       <span>{item.text}</span>
                       <IoIosArrowUp
-                        className={`transition-transform duration-300 ${openSubMenu === item.key ? "rotate-0" : "rotate-180"
-                          }`}
+                        className={`transition-transform duration-300 ${
+                          openSubMenu === item.key ? "rotate-0" : "rotate-180"
+                        }`}
                       />
                     </div>
                     <ul
-                      className={`ml-4 mt-2 col-start gap-2 overflow-hidden transition-all duration-300 ${openSubMenu === item.key ? "max-h-96" : "max-h-0"
-                        }`}
+                      className={`ml-4 mt-2 col-start gap-2 overflow-hidden transition-all duration-300 ${
+                        openSubMenu === item.key ? "max-h-96" : "max-h-0"
+                      }`}
                     >
                       {item.subMenuItems?.map((sub) => (
                         <li key={sub.key}>

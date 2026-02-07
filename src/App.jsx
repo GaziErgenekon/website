@@ -15,9 +15,9 @@ function App() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={
-          <Suspense fallback={<Loading />}>
+          // <Suspense fallback={<Loading />}>
             <Home />
-          </Suspense>
+          // </Suspense>
         } />
         <Route path="/idef" element={
           <Suspense fallback={<Loading />}>

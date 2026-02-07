@@ -7,13 +7,13 @@ const Idef = () => {
     }, []);
 
     return (
-        <div className="pt-24 min-h-screen bg-background text-foreground transition-colors duration-300">
+        <div className="pt-32 min-h-screen bg-background text-foreground transition-colors duration-300">
             <div className="container mx-auto px-4 py-8">
                 {/* Header Section */}
                 <div className="text-center mb-16 space-y-4">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4 sec-title text-gradient-br from-foreground to-foreground/20">
+                    <h2 className="text-4xl md:text-6xl font-bold pb-4 sec-title text-gradient-br from-foreground to-foreground/20">
                         IDEF'25 Yolculuğumuz
-                    </h1>
+                    </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
                     <p className="text-xl text-foreground/60 max-w-3xl mx-auto font-light leading-relaxed">
                         Uluslararası Savunma Sanayii Fuarı'ndaki teknoloji gösterimimiz ve sektör buluşmalarımızdan kareler.

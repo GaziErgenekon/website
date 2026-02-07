@@ -109,7 +109,7 @@ const Teams = () => {
               </Button>
             ))}
           </div>
-          <div className="flex flex-wrap justify-center gap-6 animate-fadeIn">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,auto))] justify-center gap-6 animate-fadeIn">
             {teamStructure.subTeams[activeTab].map((member, idx) => (
               <MemberCard key={idx} member={member} />
             ))}
