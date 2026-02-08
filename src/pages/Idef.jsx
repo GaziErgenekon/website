@@ -87,23 +87,40 @@ const Idef = () => {
                 <div className="mb-24">
                     <h2 className="text-3xl font-bold text-center mb-8">Resmi Fuar Profilimiz</h2>
                     <p className="text-center text-foreground/60 mb-8">IDEF'25 Dijital Platformunda Ergenekon R&D Team</p>
-                    <div className="w-full h-[600px] border border-white/10 rounded-2xl overflow-hidden shadow-xl bg-white">
-                        <iframe
-                            src="https://gaziergenekonarge.idef.com.tr/"
-                            title="Ergenekon IDEF Profile"
-                            className="w-full h-full border-0"
-                        ></iframe>
-                    </div>
-                    <div className="text-center mt-6">
-                        <a
-                            href="https://gaziergenekonarge.idef.com.tr/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary/80 transition-all shadow-lg hover:shadow-primary/20"
-                        >
-                            Profili Yeni Sekmede Aç ↗
-                        </a>
-                    </div>
+
+                    <a
+                        href="https://gaziergenekonarge.idef.com.tr/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full h-[400px] border border-white/10 rounded-2xl overflow-hidden shadow-xl group relative transform hover:-translate-y-1 transition-all duration-300"
+                    >
+                        {/* Background Image - Blurred version of a screenshot or just a relevant image */}
+                        <div
+                            className="absolute inset-0 bg-cover bg-center blur-sm opacity-50 group-hover:opacity-40 transition-opacity duration-500"
+                            style={{ backgroundImage: "url('/oduller/idef_burkay.JPG')" }}
+                        ></div>
+                        <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors duration-500"></div>
+
+                        {/* Content */}
+                        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-6 p-8">
+                            <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20 mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <img src="/logolar/idef_logo.png" alt="IDEF Logo" className="w-16 h-16 object-contain" />
+                            </div>
+
+                            <div className="space-y-2">
+                                <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-primary transition-colors duration-300">
+                                    IDEF'25 Dijital Standı
+                                </h3>
+                                <p className="text-gray-300 max-w-lg mx-auto text-lg">
+                                    Ergenekon R&D Team'in resmi fuar profilini, ürünlerini ve detaylı bilgilerini IDEF dijital platformunda inceleyin.
+                                </p>
+                            </div>
+
+                            <span className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-bold group-hover:bg-primary/80 transition-all shadow-lg shadow-primary/20 mt-4">
+                                Profili Ziyaret Et ↗
+                            </span>
+                        </div>
+                    </a>
                 </div>
 
                 {/* Gallery Grid */}

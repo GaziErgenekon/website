@@ -132,8 +132,6 @@ export const galleryImages = [
   "/galeri/1754217588221.jpeg",
   "/galeri/3f095a80-c876-44f6-b341-47040b71e3c3.JPG",
   "/galeri/95d4909b-fa17-43a2-a6ff-1d4afdafdbb0.JPG",
-  "/galeri/UDHAM_odul.jpeg",
-  "/galeri/5G_odul.jpg",
   "/galeri/sergi.JPG",
 ];
 export const heroContent = {
