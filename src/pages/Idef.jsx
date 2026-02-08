@@ -1,13 +1,32 @@
-import React, { useEffect } from "react";
-import { galleryImages } from "../constants";
+import React, { useEffect, useState } from "react";
+import { idefGalleryImages } from "../constants";
+import LightboxGallery from "../components/common/LightboxGallery";
 
 const Idef = () => {
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    const openModal = (index) => {
+        setSelectedImageIndex(index);
+    };
+
+    const closeModal = () => {
+        setSelectedImageIndex(null);
+    };
+
     return (
         <div className="pt-32 min-h-screen bg-background text-foreground transition-colors duration-300">
+            {/* Gallery Modal */}
+            <LightboxGallery
+                images={idefGalleryImages}
+                selectedIndex={selectedImageIndex}
+                onClose={closeModal}
+                onIndexChange={setSelectedImageIndex}
+            />
+
             <div className="container mx-auto px-4 py-8">
                 {/* Header Section */}
                 <div className="text-center mb-16 space-y-4">
@@ -132,7 +151,10 @@ const Idef = () => {
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
                         {galleryImages.map((img, idx) => (
-                            <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer border border-white/5 shadow-lg">
+                            <div key={idx}
+                                onClick={() => openModal(idx)}
+                                className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer border border-white/5 shadow-lg"
+                            >
                                 <img
                                     src={img}
                                     alt={`IDEF Moment ${idx + 1}`}

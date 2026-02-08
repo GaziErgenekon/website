@@ -134,6 +134,14 @@ export const galleryImages = [
   "/galeri/95d4909b-fa17-43a2-a6ff-1d4afdafdbb0.JPG",
   "/galeri/sergi.JPG",
 ];
+
+export const mainGalleryImages = [
+  "/oduller/UDHAM_odul.jpeg",
+  "/oduller/5G_odul.jpg",
+  "/oduller/SamsunHackathon_oduller.jpg",
+  "/galeri/sergi.JPG",
+  "/oduller/idef_burkay.JPG",
+];
 export const heroContent = {
   title: "ERGENEKON R&D TEAM",
   subtitle: "GAZİ ÜNİVERSİTESİ",
