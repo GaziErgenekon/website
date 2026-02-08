@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { idefGalleryImages } from "../constants";
+import { galleryImages } from "../constants";
 import LightboxGallery from "../components/common/LightboxGallery";
 
 const Idef = () => {
@@ -21,7 +21,7 @@ const Idef = () => {
         <div className="pt-32 min-h-screen bg-background text-foreground transition-colors duration-300">
             {/* Gallery Modal */}
             <LightboxGallery
-                images={idefGalleryImages}
+                images={galleryImages}
                 selectedIndex={selectedImageIndex}
                 onClose={closeModal}
                 onIndexChange={setSelectedImageIndex}
