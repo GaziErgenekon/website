@@ -17,10 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      VITE_REACT_SERVICE_ID: ${{ secrets.SERVICE_ID }}
-      VITE_REACT_TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}   
-      VITE_REACT_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}  
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,6 +35,10 @@ jobs:
         run: pnpm install
         
       - name: Build
+        env:
+          VITE_REACT_SERVICE_ID: ${{ secrets.SERVICE_ID }}
+          VITE_REACT_TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}   
+          VITE_REACT_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}  
         run: pnpm run build
         
       - name: Upload artifact
