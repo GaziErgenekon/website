@@ -14,7 +14,7 @@ const LightboxGallery = ({ images, selectedIndex, onClose, onIndexChange }) => {
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [selectedIndex, onClose, onIndexChange]); // Added dependencies
+    }, [selectedIndex, onClose, onIndexChange]); 
 
     const handleNext = (e) => {
         if (e) e.stopPropagation();

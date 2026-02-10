@@ -2,17 +2,94 @@ import React from "react";
 import { FaPaperPlane, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 import Button from "../ui/Button";
 import { teamContact } from "../../constants";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { getFormValue, isEmail } from "../../libs/utils";
+import toast from "react-hot-toast";
+import isEmpty from "lodash/isEmpty";
 
 const Contact = () => {
+  const [isLoading, setLoading] = useState(false);
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-  const onSubmit = e => {
-    e.preventDefault()
-    const form = e.target;
+    const keys = ["name", "email", "message", "title"];
 
-    const name = form.name.value;
-    const email = form.email.value;
-    const message = form.message.value;
-  }
+    const [name, email, description, title] = keys.map(
+      (key) => getFormValue(key, e.target) || "",
+    );
+
+    if (
+      isEmpty(name) ||
+      isEmpty(email) ||
+      isEmpty(description) ||
+      isEmpty(title)
+    ) {
+      toast.error({
+        title: "İşlem Başarısız",
+        content: "Formdaki alanların tamamını lütfen doldurun",
+      });
+      return;
+    }
+    if (!isEmail(email)) {
+      toast.error({
+        title: "İşlem Başarısız",
+        content: "Lütfen doğru formatta bir email adresi girin",
+      });
+      return;
+    }
+    ("");
+    if (title.length > 75) {
+      toast.error({
+        title: "İşlem Başarısız",
+        content: "Konu alanı maksimum 75 karakter olabilir",
+      });
+      return;
+    }
+    if (description.length > 300) {
+      toast.error({
+        title: "İşlem Başarısız",
+        content: "Mesaj alanı maksimum 300 karakter olabilir",
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const res = await emailjs.send(
+        import.meta.env.VITE_REACT_SERVICE_ID,
+        import.meta.env.VITE_REACT_TEMPLATE_ID,
+        {
+          name,
+          title,
+          email,
+          description,
+        },
+        {
+          publicKey: import.meta.env.VITE_REACT_PUBLIC_KEY,
+        },
+      );
+
+      if (res.status === 200) {
+        keys.forEach((key) => {
+          e.target[key].value = "";
+        });
+        toast.success({
+          title: "İşlem Başarılı",
+          content: "Mesajınız başarılı şekilde gönderildi.",
+        });
+      }
+    } catch (error) {
+      toast.error({
+        title: "İşlem Başarısız",
+        content:
+          "Mesajınız gönderilirken bir hata oluştu.Daha sonra tekrar deneyin.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <section className="w-full py-20 bg-background text-foreground relative">
       <div id="contact" className="container px-4 mx-auto max-w-4xl">
@@ -94,6 +171,19 @@ const Contact = () => {
             </div>
 
             <div className="relative">
+              <input
+                type="text"
+                required
+                className="peer w-full bg-transparent border-b border-secondary/20 py-3 text-foreground focus:outline-none focus:border-primary transition-all placeholder-transparent"
+                placeholder="Konunuz"
+                name="title"
+              />
+              <label className="absolute left-0 -top-3.5 text-sm text-foreground/50 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary">
+                Konu
+              </label>
+            </div>
+
+            <div className="relative">
               <textarea
                 rows="4"
                 required
@@ -110,12 +200,22 @@ const Contact = () => {
               <Button
                 variant="radial"
                 colorMode="primary"
+                disabled={isLoading}
                 size="lg"
                 type="submit"
                 className="px-12 text-xl ms-auto hover:[&_.send-icon]:translate-y-0 hover:[&_.send-icon]:translate-x-0 hover:[&_.send-icon]:opacity-100 hover:[&_.send-icon]:ms-0 overflow-hidden"
               >
-                Gönder
-                <FaPaperPlane className="send-icon -translate-x-5 translate-y-8 transition-all duration-500 opacity-0 -ms-7.5" />
+                {isLoading ? (
+                  <>
+                    Gönderiliyor
+                    <AiOutlineLoading3Quarters className="animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Gönder
+                    <FaPaperPlane className="send-icon -translate-x-5 translate-y-8 transition-all duration-500 opacity-0 -ms-7.5" />
+                  </>
+                )}
               </Button>
             </div>
           </form>

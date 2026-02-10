@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { cn } from "../../libs/utils";
 
 const buttonVariants = cva(
-  "flex-center cursor-pointer gap-3 transition-colors px-3 py-2 font-semibold rounded-lg",
+  "flex-center cursor-pointer gap-3 transition-colors px-3 py-2 font-semibold rounded-lg disabled:opacity-70 disabled:pointer-events-none",
   {
     variants: {
       colorMode: {

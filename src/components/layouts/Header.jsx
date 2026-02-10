@@ -4,9 +4,9 @@ import { useState, useCallback } from "react";
 import Dropdown from "../ui/Dropdown";
 import { IoIosArrowUp } from "react-icons/io";
 import Hamburger from "hamburger-react";
-import clsx from "clsx";
 import Button from "../ui/Button";
 import { useEffect } from "react";
+import { cn } from "../../libs/utils";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
@@ -103,7 +103,7 @@ const Header = () => {
 
   const isHomePage = pathname === "/";
 
-  const headerClassname = clsx(
+  const headerClassname = cn(
     !isHomePage || showNav
       ? `${!isOpen && isHomePage && (animate ? "animate-nav-animate" : "animate-nav-exit")} fixed bg-background border-b border-foreground/20`
       : `${isOpen ? "max-md:fixed" : "absolute"} ${isOpen && "max-md:bg-background max-md:border-b max-md:border-foreground/20"}`,

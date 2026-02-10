@@ -4,6 +4,27 @@
 /* @custom-variant dark (&:where(.dark, .dark *)); */
 
 @theme {
+  @keyframes custom-enter {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes custom-leave {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.9);
+    }
+  }
   @keyframes nav-start {
     0% {
       transform: translateY(-100%);
@@ -50,6 +71,8 @@
   --animate-nav-animate: nav-start 0.4s ease ;
   --animate-text-shadow: text-shadow 0.4s ease ;
   --animate-nav-exit: nav-exit 0.4s ease ;
+  --animate-custom-enter: custom-enter 0.4s cubic-bezier(0.21, 1.02, 0.73, 1) forwards ;
+  --animate-custom-leave: custom-leave 0.4s cubic-bezier(0.06, 0.71, 0.55, 1) forwards ;
 
   --breakpoint-xs: 400px;
   --breakpoint-xls: 550px;
