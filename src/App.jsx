@@ -1,32 +1,22 @@
-import { Route, Routes } from "react-router-dom"
-import { lazy, Suspense } from "react"
-import MainLayout from "./layouts/MainLayout"
-import Loading from "./components/ui/Loading"
+import { Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import MainLayout from "./layouts/MainLayout";
+import Loading from "./components/ui/Loading";
 
-const Home = lazy(() => import("./pages/Home"))
-const Idef = lazy(() => import("./pages/Idef"))
-const Error = lazy(() => import("./pages/Error"))
+const Home = lazy(() => import("./pages/Home"));
+const Idef = lazy(() => import("./pages/Idef"));
+const Error = lazy(() => import("./pages/Error"));
 
 function App() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route path="/" element={
-            <Home />
-        } />
-        <Route path="/idef" element={
-          <Suspense fallback={<Loading />}>
-            <Idef />
-          </Suspense>
-        } />
-        <Route path="/*" element={
-          <Suspense fallback={<Loading />}>
-            <Error />
-          </Suspense>
-        } />
+        <Route path="/" element={<Home />} />
+        <Route path="/idef" element={<Idef />} />
+        <Route path="/*" element={<Error />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
+import { cn } from "../../libs/utils";
 
-const Backdrop = ({ children }) => {
+const Backdrop = ({ children, className, ...props }) => {
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 bg-black/50 z-[100]">
+    <div
+      className={cn("fixed inset-0 bg-black/50 z-[1000]", className)}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -10,6 +14,7 @@ const Backdrop = ({ children }) => {
 
 Backdrop.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string
 };
 
 export default Backdrop;

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { FaAward } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import ImageViewer from "../common/ImageViewer";
 import { achievements } from "../../constants";
 import Carousel from "../ui/Carousel";
+import { lazy } from "react";
+
+const ImageViewer = lazy(() => import("../common/ImageViewer"));
 
 const Achievements = () => {
   const navigate = useNavigate();
@@ -39,7 +41,8 @@ const Achievements = () => {
         <Carousel
           leftArrowClassname="top-auto -bottom-16 [&_svg]:size-12 !left-[calc(50%-60px)] "
           rightArrowClassname="top-auto -bottom-16 [&_svg]:size-12  !right-[calc(50%-60px)] "
-          options={sliderOptions}>
+          options={sliderOptions}
+        >
           {achievements.map((item) => (
             <div
               key={item.id}
@@ -55,8 +58,9 @@ const Achievements = () => {
                   <img
                     src={item.mainImage}
                     alt={item.title}
-                    className={`size-full ${item.imageFit || "object-cover"
-                      } group-hover/img:scale-105 transition-transform duration-500`}
+                    className={`size-full ${
+                      item.imageFit || "object-cover"
+                    } group-hover/img:scale-105 transition-transform duration-500`}
                   />
                   <div className="absolute inset-0 bg-background/30 opacity-0 group-hover/img:opacity-100 transition-opacity flex-center">
                     <span className="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded">
@@ -111,7 +115,7 @@ const Achievements = () => {
                           className="size-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                         />
                       </a>
-                    )
+                    ),
                   )}
                 </div>
               </div>

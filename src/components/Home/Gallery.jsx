@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { mainGalleryImages } from "../../constants";
-import LightboxGallery from "../common/LightboxGallery";
+import { lazy } from "react";
+
+const LightboxGallery = lazy(() => import("../common/LightboxGallery"));
 
 const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);

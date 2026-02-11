@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { FaTimes } from "react-icons/fa";
 import Overlay from "../ui/Overlay";
 import OutsideClickHandler from "./OutsideClickHandler";
+import Button from "../ui/Button";
+import Backdrop from "../ui/Backdrop";
 
 const ImageViewer = ({ isOpen, imageUrl, onClose, altText = "Görüntü" }) => {
   useEffect(() => {
@@ -25,17 +27,16 @@ const ImageViewer = ({ isOpen, imageUrl, onClose, altText = "Görüntü" }) => {
 
   return (
     <Overlay>
-      <div className="fixed top-0 left-0 right-0 bottom-0 z-[1000] flex-center bg-background/90 backdrop-blur-sm p-4 md:p-10">
-        <button
+      <Backdrop className="flex-center backdrop-blur-sm">
+        <Button
           onClick={onClose}
-          className="absolute top-6 right-6 z-50 p-2 text-secondary/50 hover:text-secondary/70 hover:bg-secondary/10 rounded-full transition-all duration-300"
+          size="icon"
+          className="absolute top-6 right-6 text-secondary/50 hover:text-secondary/70 rounded-full"
         >
           <FaTimes size={32} />
-        </button>
-        <OutsideClickHandler onOutsideClick={()=> onClose()}>
-          <div
-            className="relative max-w-full max-h-full"
-          >
+        </Button>
+        <OutsideClickHandler onOutsideClick={() => onClose()}>
+          <div className="relative max-w-full max-h-full">
             <img
               src={imageUrl}
               alt={altText}
@@ -43,7 +44,7 @@ const ImageViewer = ({ isOpen, imageUrl, onClose, altText = "Görüntü" }) => {
             />
           </div>
         </OutsideClickHandler>
-      </div>
+      </Backdrop>
     </Overlay>
   );
 };
