@@ -38,6 +38,7 @@ const Header = () => {
     },
     { text: "Ekip", href: "#team" },
     { text: "İletişim", href: "#contact" },
+    { text: "Bize Katıl", href: "/bize-katil", isLink: true },
   ];
 
   const handleScroll = useCallback(
@@ -90,6 +91,7 @@ const Header = () => {
     },
     { key: "team", text: "Ekip", href: "#team" },
     { key: "contact", text: "İletişim", href: "#contact" },
+    { key: "bize-katil", text: "Bize Katıl", href: "/bize-katil", isLink: true },
   ];
 
   const handleToggleSubMenu = (key) => {
@@ -99,7 +101,7 @@ const Header = () => {
   useEffect(() => {
     setOpen(false)
   }, [pathname])
-  
+
 
   const isHomePage = pathname === "/";
 
@@ -115,9 +117,8 @@ const Header = () => {
   return (
     <header className={headerClassname}>
       <div
-        className={`container flex-between ${
-          !isHomePage || (!showNav && "border-b border-foreground")
-        } py-6`}
+        className={`container flex-between ${!isHomePage || (!showNav && "border-b border-foreground")
+          } py-6`}
       >
         <div className="row-center gap-4 font-mono text-2xl font-semibold">
           <a href="https://gazisiber.org/" target="_blank">
@@ -144,9 +145,8 @@ const Header = () => {
             <ul className="hidden md:flex items-center gap-6 font-semibold">
               {items.map((item, index) => (
                 <li
-                  className={`after:content-[''] relative after:absolute after:left-1/2 after:-bottom-1 ${
-                    !item.isDropdown && " hover:after:w-full hover:after:left-0"
-                  } after:h-[1.5px] after:transition-all after:duration-500 after:w-0 after:bg-foreground`}
+                  className={`after:content-[''] relative after:absolute after:left-1/2 after:-bottom-1 ${!item.isDropdown && " hover:after:w-full hover:after:left-0"
+                    } after:h-[1.5px] after:transition-all after:duration-500 after:w-0 after:bg-foreground`}
                   key={index}
                 >
                   {item.isDropdown ? (
@@ -162,6 +162,8 @@ const Header = () => {
                       }
                       listItems={item.dropdownLinks}
                     />
+                  ) : item.isLink ? (
+                    <Link to={item.href} className="border border-danger/60 text-danger px-4 py-1.5 rounded-full hover:bg-danger/10 hover:shadow-[0_0_12px_rgba(220,38,38,0.3)] transition-all duration-300">{item.text}</Link>
                   ) : (
                     <a href={item.href}>{item.text}</a>
                   )}
@@ -190,15 +192,13 @@ const Header = () => {
                     >
                       <span>{item.text}</span>
                       <IoIosArrowUp
-                        className={`transition-transform duration-300 ${
-                          openSubMenu === item.key ? "rotate-0" : "rotate-180"
-                        }`}
+                        className={`transition-transform duration-300 ${openSubMenu === item.key ? "rotate-0" : "rotate-180"
+                          }`}
                       />
                     </div>
                     <ul
-                      className={`ml-4 mt-2 col-start gap-2 overflow-hidden transition-all duration-300 ${
-                        openSubMenu === item.key ? "max-h-96" : "max-h-0"
-                      }`}
+                      className={`ml-4 mt-2 col-start gap-2 overflow-hidden transition-all duration-300 ${openSubMenu === item.key ? "max-h-96" : "max-h-0"
+                        }`}
                     >
                       {item.subMenuItems?.map((sub) => (
                         <li key={sub.key}>
@@ -213,6 +213,8 @@ const Header = () => {
                       ))}
                     </ul>
                   </>
+                ) : item.isLink ? (
+                  <Link to={item.href} className="border border-danger/60 text-danger px-4 py-1.5 rounded-full hover:bg-danger/10 transition-all duration-300 inline-block">{item.text}</Link>
                 ) : (
                   <a href={item.href}>{item.text}</a>
                 )}

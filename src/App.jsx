@@ -5,6 +5,7 @@ import Loading from "./components/ui/Loading";
 
 const Home = lazy(() => import("./pages/Home"));
 const Idef = lazy(() => import("./pages/Idef"));
+const BizeKatil = lazy(() => import("./pages/BizeKatil"));
 const Error = lazy(() => import("./pages/Error"));
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/idef" element={<Idef />} />
+        <Route path="/bize-katil" element={<BizeKatil />} />
         <Route path="/*" element={<Error />} />
       </Route>
     </Routes>
