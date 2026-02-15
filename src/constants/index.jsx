@@ -426,3 +426,5 @@ export const projectsData = [
     achievements: ["UDHAM Mansiyon Ödülü", "Kuantum Şifreleme Araştırması"],
   },
 ];
+
+export const UNIVERSITY_MAP_ADDRESS = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.1899654684794!2d32.81888537565268!3d39.9371402846898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34eda7057c303%3A0x3839e3df56fce542!2sGazi%20University%20Faculty%20of%20Technology!5e0!3m2!1sen!2str!4v1757607860167!5m2!1sen!2str";

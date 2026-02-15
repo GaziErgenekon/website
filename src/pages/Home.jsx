@@ -10,6 +10,7 @@ import Gallery from '../components/Home/Gallery'
 import Stakeholders from '../components/Home/Stakeholders'
 import Supporters from '../components/Home/Supporters'
 import Map from '../components/common/Map'
+import { UNIVERSITY_MAP_ADDRESS } from '../constants'
 
 const Home = () => {
   return (
@@ -24,7 +25,7 @@ const Home = () => {
       <Supporters />
       <Gallery />
       <Contact />
-      <Map />
+      <Map src={UNIVERSITY_MAP_ADDRESS}/>
     </>
   )
 }
