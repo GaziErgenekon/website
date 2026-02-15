@@ -67,25 +67,19 @@ const Header = () => {
 
   return (
     <header
-      className={`${
-        pathname !== "/" || showNav
-          ? `${
-              !isOpen && (animate ? "animate-nav-animate" : "animate-nav-exit")
-            } fixed bg-background border-b border-foreground/20`
-          : `${isOpen ? "max-md:fixed" : "absolute"} ${
-              isOpen &&
-              "max-md:bg-background max-md:border-b max-md:border-foreground/20"
-            }`
-      } ${
-        pathname !== "/" && "!animate-none"
-      } top-0 left-0 w-full z-[999] transition-all  ${
-        isOpen ? "max-md:h-screen" : "max-md:h-auto"
-      } `}
+      className={`${pathname !== "/" || showNav
+        ? `${!isOpen && (animate ? "animate-nav-animate" : "animate-nav-exit")
+        } fixed bg-background border-b border-foreground/20`
+        : `${isOpen ? "max-md:fixed" : "absolute"} ${isOpen &&
+        "max-md:bg-background max-md:border-b max-md:border-foreground/20"
+        }`
+        } ${pathname !== "/" && "!animate-none"
+        } top-0 left-0 w-full z-[999] transition-all  ${isOpen ? "max-md:h-screen" : "max-md:h-auto"
+        } `}
     >
       <div
-        className={`container flex-between ${
-          pathname !== "/" || (!showNav && "border-b border-foreground")
-        } py-6`}
+        className={`container flex-between ${pathname !== "/" || (!showNav && "border-b border-foreground")
+          } py-6`}
       >
         <div className="row-center gap-4 font-mono text-2xl font-semibold">
           <a href="https://gazisiber.org/" target="_blank">
@@ -105,39 +99,57 @@ const Header = () => {
         </div>
 
         <nav>
-          <div className="md:hidden">
-            <Hamburger toggled={isOpen} toggle={setOpen} />
-          </div>
-          <ul className="hidden md:flex items-center gap-6 font-semibold">
-            {items.map((item, index) => (
-              <li
-                className={`after:content-[''] relative after:absolute after:left-1/2 after:-bottom-1 ${
-                  !item.isDropdown && " hover:after:w-full hover:after:left-0"
-                } after:h-[1.5px] after:transition-all after:duration-500 after:w-0 after:bg-foreground`}
-                key={index}
-              >
-                {item.isDropdown ? (
-                  <Dropdown
-                    listClassname="!translate-y-1"
-                    itemClassname="text-base "
-                    isHoverTrigger
-                    trigger={
-                      <div className="row-center gap-3">
-                        {item.text}
-                        <IoIosArrowUp className="dropdown-rotate-arrow-icon" />
-                      </div>
-                    }
-                    listItems={item.dropdownLinks}
-                  />
-                ) : (
-                  <a href={item.href}>{item.text}</a>
-                )}
-              </li>
-            ))}
-          </ul>
+          {pathname === "/bize-katil" ? (
+            <Link
+              to="/"
+              className="px-5 py-2 rounded-lg border border-foreground/20 text-foreground font-semibold hover:bg-foreground/10 transition-all duration-300"
+            >
+              ← Ana Sayfaya Dön
+            </Link>
+          ) : (
+            <>
+              <div className="md:hidden">
+                <Hamburger toggled={isOpen} toggle={setOpen} />
+              </div>
+              <ul className="hidden md:flex items-center gap-6 font-semibold">
+                {items.map((item, index) => (
+                  <li
+                    className={`after:content-[''] relative after:absolute after:left-1/2 after:-bottom-1 ${!item.isDropdown && " hover:after:w-full hover:after:left-0"
+                      } after:h-[1.5px] after:transition-all after:duration-500 after:w-0 after:bg-foreground`}
+                    key={index}
+                  >
+                    {item.isDropdown ? (
+                      <Dropdown
+                        listClassname="!translate-y-1"
+                        itemClassname="text-base "
+                        isHoverTrigger
+                        trigger={
+                          <div className="row-center gap-3">
+                            {item.text}
+                            <IoIosArrowUp className="dropdown-rotate-arrow-icon" />
+                          </div>
+                        }
+                        listItems={item.dropdownLinks}
+                      />
+                    ) : (
+                      <a href={item.href}>{item.text}</a>
+                    )}
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    to="/bize-katil"
+                    className="px-5 py-2 rounded-lg bg-primary text-foreground font-semibold hover:opacity-90 transition-all duration-300"
+                  >
+                    Bize Katıl
+                  </Link>
+                </li>
+              </ul>
+            </>
+          )}
         </nav>
       </div>
-      {isOpen && (
+      {isOpen && pathname !== "/bize-katil" && (
         <div className="md:hidden border-t max-h-[calc(100vh-113px)] overflow-y-auto border-foreground/20 py-6">
           <ul className="col-start gap-4 font-semibold container mx-auto px-6">
             {toggleMenuItems.map((item) => (
@@ -150,15 +162,13 @@ const Header = () => {
                     >
                       <span>{item.text}</span>
                       <IoIosArrowUp
-                        className={`transition-transform duration-300 ${
-                          openSubMenu === item.key ? "rotate-0" : "rotate-180"
-                        }`}
+                        className={`transition-transform duration-300 ${openSubMenu === item.key ? "rotate-0" : "rotate-180"
+                          }`}
                       />
                     </div>
                     <ul
-                      className={`ml-4 mt-2 col-start gap-2 overflow-hidden transition-all duration-300 ${
-                        openSubMenu === item.key ? "max-h-96" : "max-h-0"
-                      }`}
+                      className={`ml-4 mt-2 col-start gap-2 overflow-hidden transition-all duration-300 ${openSubMenu === item.key ? "max-h-96" : "max-h-0"
+                        }`}
                     >
                       {item.subMenuItems?.map((sub) => (
                         <li key={sub.key}>
@@ -178,6 +188,15 @@ const Header = () => {
                 )}
               </li>
             ))}
+            <li className="text-lg w-full pt-2 border-t border-foreground/10">
+              <Link
+                to="/bize-katil"
+                onClick={() => setOpen(false)}
+                className="inline-block px-5 py-2 rounded-lg bg-primary text-foreground font-semibold hover:opacity-90 transition-all duration-300"
+              >
+                Bize Katıl
+              </Link>
+            </li>
           </ul>
         </div>
       )}
