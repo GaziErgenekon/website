@@ -33,7 +33,7 @@ const BizeKatil = () => {
       <div className="max-w-4xl mx-auto">
         <iframe
           ref={iframeRef}
-          style={{ border: "none", width: "100%", minHeight: "101vh" }}
+          style={{ border: "none", width: "100%", minHeight: "110vh" }}
           id="alim-formu"
           src="https://form.gazisiber.org/forms/alim-formu"
         ></iframe>
