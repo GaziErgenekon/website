@@ -26,16 +26,6 @@ const Teams = () => {
             <FaLinkedinIn size={15} />
           </a>
         </Button>
-        <Button
-          variant="outline"
-          colorMode="secondary"
-          size="icon"
-          className="p-2"
-        >
-          <a href={`mailto:${member.email}`}>
-            <FaEnvelope size={15} />
-          </a>
-        </Button>
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ const Header = () => {
         },
       ],
     },
-    { text: "Ekip", href: "#team" },
+    { text: "Ekibimiz", href: "/ekibimiz", isPageLink: true },
     { text: "İletişim", href: "#contact" },
     { text: "Bize Katıl", href: "/bize-katil", isLink: true },
   ];
@@ -89,7 +89,7 @@ const Header = () => {
         },
       ],
     },
-    { key: "team", text: "Ekip", href: "#team" },
+    { key: "team", text: "Ekibimiz", href: "/ekibimiz", isPageLink: true },
     { key: "contact", text: "İletişim", href: "#contact" },
     { key: "bize-katil", text: "Bize Katıl", href: "/bize-katil", isLink: true },
   ];
@@ -164,6 +164,8 @@ const Header = () => {
                     />
                   ) : item.isLink ? (
                     <Link to={item.href} className="border border-danger/60 text-danger px-4 py-1.5 rounded-full hover:bg-danger/10 hover:shadow-[0_0_12px_rgba(220,38,38,0.3)] transition-all duration-300">{item.text}</Link>
+                  ) : item.isPageLink ? (
+                    <Link to={item.href}>{item.text}</Link>
                   ) : (
                     <a href={item.href}>{item.text}</a>
                   )}
@@ -215,6 +217,8 @@ const Header = () => {
                   </>
                 ) : item.isLink ? (
                   <Link to={item.href} className="border border-danger/60 text-danger px-4 py-1.5 rounded-full hover:bg-danger/10 transition-all duration-300 inline-block">{item.text}</Link>
+                ) : item.isPageLink ? (
+                  <Link to={item.href}>{item.text}</Link>
                 ) : (
                   <a href={item.href}>{item.text}</a>
                 )}

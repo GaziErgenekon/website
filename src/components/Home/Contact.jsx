@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPaperPlane, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
+import { FaPaperPlane, FaLinkedinIn, FaEnvelope, FaPhone } from "react-icons/fa";
 import Button from "../ui/Button";
 import { teamContact } from "../../constants";
 import emailjs from "@emailjs/browser";
@@ -107,7 +107,7 @@ const Contact = () => {
             <div className="size-24 md:size-32 rounded-full p-1 border border-primary/30">
               <img
                 src={teamContact.img}
-                alt="Gökhan Tonkal"
+                alt="Abdullah Zeynel"
                 className="w-full h-full object-cover rounded-full hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -120,7 +120,7 @@ const Contact = () => {
                 {teamContact.title}
               </p>
 
-              <div className="flex-center md:justify-start gap-4">
+                <div className="flex-center md:justify-start gap-4 flex-wrap">
                 <a
                   href={`mailto:${teamContact.email}`}
                   className="flex items-center gap-2 text-foreground/60 hover:text-secondary transition-colors text-sm"
@@ -128,6 +128,15 @@ const Contact = () => {
                   <FaEnvelope />
                   <span>E-Posta Gönder</span>
                 </a>
+                {teamContact.phone && (
+                  <a
+                    href={`tel:${teamContact.phone.replace(/\s/g, '')}`}
+                    className="flex items-center gap-2 text-foreground/60 hover:text-primary transition-colors text-sm"
+                  >
+                    <FaPhone />
+                    <span>{teamContact.phone}</span>
+                  </a>
+                )}
                 <a
                   href={teamContact.linkedin}
                   className="flex items-center gap-2 text-foreground/60 hover:text-third transition-colors text-sm"

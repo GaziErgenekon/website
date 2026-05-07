@@ -17,8 +17,8 @@ const Footer = () => {
       href: "#achievements",
     },
     {
-      text: "Ekip",
-      href: "#team",
+      text: "Ekibimiz",
+      href: "/ekibimiz",
     },
     {
       text: "İletişim",

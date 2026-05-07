@@ -4,7 +4,6 @@ import Stats from '../components/Home/Stats'
 import AboutUs from '../components/Home/AboutUs'
 import Projects from '../components/Home/Projects'
 import Achievements from '../components/Home/Achievements'
-import Teams from '../components/Home/Teams'
 import Contact from '../components/Home/Contact'
 import Gallery from '../components/Home/Gallery'
 import Stakeholders from '../components/Home/Stakeholders'
@@ -20,7 +19,6 @@ const Home = () => {
       <Stats />
       <Projects />
       <Achievements />
-      <Teams />
       <Stakeholders />
       <Supporters />
       <Gallery />
