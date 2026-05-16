@@ -8,9 +8,11 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { getFormValue, isEmail } from "../../libs/utils";
 import toast from "react-hot-toast";
 import isEmpty from "lodash/isEmpty";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Contact = () => {
   const [isLoading, setLoading] = useState(false);
+  const { t, tx } = useLanguage();
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,30 +29,29 @@ const Contact = () => {
       isEmpty(title)
     ) {
       toast.error({
-        title: "İşlem Başarısız",
-        content: "Formdaki alanların tamamını lütfen doldurun",
+        title: t("contact.failTitle"),
+        content: t("contact.fillAll"),
       });
       return;
     }
     if (!isEmail(email)) {
       toast.error({
-        title: "İşlem Başarısız",
-        content: "Lütfen doğru formatta bir email adresi girin",
+        title: t("contact.failTitle"),
+        content: t("contact.invalidEmail"),
       });
       return;
     }
-    ("");
     if (title.length > 75) {
       toast.error({
-        title: "İşlem Başarısız",
-        content: "Konu alanı maksimum 75 karakter olabilir",
+        title: t("contact.failTitle"),
+        content: t("contact.subjectMax"),
       });
       return;
     }
     if (description.length > 300) {
       toast.error({
-        title: "İşlem Başarısız",
-        content: "Mesaj alanı maksimum 300 karakter olabilir",
+        title: t("contact.failTitle"),
+        content: t("contact.messageMax"),
       });
       return;
     }
@@ -76,15 +77,14 @@ const Contact = () => {
           e.target[key].value = "";
         });
         toast.success({
-          title: "İşlem Başarılı",
-          content: "Mesajınız başarılı şekilde gönderildi.",
+          title: t("contact.successTitle"),
+          content: t("contact.sentOk"),
         });
       }
     } catch (error) {
       toast.error({
-        title: "İşlem Başarısız",
-        content:
-          "Mesajınız gönderilirken bir hata oluştu.Daha sonra tekrar deneyin.",
+        title: t("contact.failTitle"),
+        content: t("contact.sendError"),
       });
     } finally {
       setLoading(false);
@@ -95,15 +95,15 @@ const Contact = () => {
       <div id="contact" className="container px-4 mx-auto max-w-4xl">
         <div className="text-center mb-16">
           <h3 className="text-4xl  font-bold mb-4 sec-title text-gradient-b from-foreground to-foreground/20">
-            İletişime Geçin
+            {t("contact.heading")}
           </h3>
           <p className="text-foreground/60 text-lg font-light">
-            Sorularınız veya iş birlikleri için bizimle irtibata geçin.
+            {t("contact.subtitle")}
           </p>
         </div>
 
         <div className="flex justify-center mb-16">
-          <div className="col-center md:!flex-row gap-6 p-6 rounded-2xl border border-secondary/20 bg-transparent hover:primary/40 transition-all duration-300 w-full md:w-auto">
+          <div className="col-center md:!flex-row gap-6 p-6 rounded-2xl border border-secondary/20 bg-transparent hover:border-primary/40 transition-all duration-300 w-full md:w-auto">
             <div className="size-24 md:size-32 rounded-full p-1 border border-primary/30">
               <img
                 src={teamContact.img}
@@ -117,7 +117,7 @@ const Contact = () => {
                 {teamContact.name}
               </h3>
               <p className="text-primary font-medium mb-3">
-                {teamContact.title}
+                {tx(teamContact.title)}
               </p>
 
                 <div className="flex-center md:justify-start gap-4 flex-wrap">
@@ -126,7 +126,7 @@ const Contact = () => {
                   className="flex items-center gap-2 text-foreground/60 hover:text-secondary transition-colors text-sm"
                 >
                   <FaEnvelope />
-                  <span>E-Posta Gönder</span>
+                  <span>{t("contact.email")}</span>
                 </a>
                 {teamContact.phone && (
                   <a
@@ -139,10 +139,12 @@ const Contact = () => {
                 )}
                 <a
                   href={teamContact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-foreground/60 hover:text-third transition-colors text-sm"
                 >
                   <FaLinkedinIn />
-                  <span>LinkedIn</span>
+                  <span>{t("contact.linkedin")}</span>
                 </a>
               </div>
             </div>
@@ -161,7 +163,7 @@ const Contact = () => {
                   name="name"
                 />
                 <label className="absolute left-0 -top-3.5 text-sm text-foreground/50 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary">
-                  Adınız Soyadınız
+                  {t("contact.name")}
                 </label>
               </div>
 
@@ -174,7 +176,7 @@ const Contact = () => {
                   name="email"
                 />
                 <label className="absolute left-0 -top-3.5 text-sm text-foreground/50 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary">
-                  E-Posta Adresiniz
+                  {t("contact.emailLabel")}
                 </label>
               </div>
             </div>
@@ -188,7 +190,7 @@ const Contact = () => {
                 name="title"
               />
               <label className="absolute left-0 -top-3.5 text-sm text-foreground/50 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary">
-                Konu
+                {t("contact.subject")}
               </label>
             </div>
 
@@ -201,7 +203,7 @@ const Contact = () => {
                 name="message"
               ></textarea>
               <label className="absolute left-0 -top-3.5 text-sm text-foreground/50 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-primary">
-                Mesajınız
+                {t("contact.message")}
               </label>
             </div>
 
@@ -216,12 +218,12 @@ const Contact = () => {
               >
                 {isLoading ? (
                   <>
-                    Gönderiliyor
+                    {t("contact.sending")}
                     <AiOutlineLoading3Quarters className="animate-spin" />
                   </>
                 ) : (
                   <>
-                    Gönder
+                    {t("contact.send")}
                     <FaPaperPlane className="send-icon -translate-x-5 translate-y-8 transition-all duration-500 opacity-0 -ms-7.5" />
                   </>
                 )}

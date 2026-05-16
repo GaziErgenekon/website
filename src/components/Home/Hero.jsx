@@ -1,8 +1,10 @@
-import { heroContent } from "../../constants";
 import ParticleBackground from "../common/ParticleBackground";
 import Button from "../ui/Button";
+import { useLanguage } from "../../i18n/LanguageContext";
+import { asset } from "../../libs/utils";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const scrollToNext = () => {
     const nextSection = document.querySelector("#about-us");
     if (nextSection) {
@@ -13,7 +15,8 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative bg-[url('/hero-bg.jpg')] min-h-screen flex-center 
+      style={{ backgroundImage: `url(${asset("/hero-bg.jpg")})` }}
+      className="relative min-h-screen flex-center
                  bg-cover bg-center bg-no-repeat"
     >
       <ParticleBackground />
@@ -27,7 +30,7 @@ const Hero = () => {
 
       <div className="relative text-center">
         <img
-          src="/logo-full.png"
+          src={asset("/logo-full.png")}
           alt="Ergenekon Logo"
           className="w-48 sm:w-64 md:w-80 object-contain mx-auto mb-4 sm:mb-6 animate-pulse-slow hover:scale-110 hover:rotate-3 
                              transition-all duration-700 ease-out cursor-pointer
@@ -42,7 +45,7 @@ const Hero = () => {
                     hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.6)]
                     hover:tracking-[0.4em] transition-all duration-300 cursor-default"
         >
-          {heroContent.subtitle}
+          {t("hero.subtitle")}
         </p>
 
         <h1
@@ -52,7 +55,7 @@ const Hero = () => {
                              hover:tracking-widest cursor-default
                              group"
         >
-          {heroContent.title.split(" ").map((word, index, arr) => (
+          {t("hero.title").split(" ").map((word, index, arr) => (
             <span
               key={index}
               className={`inline-block transition-all duration-300 ${
@@ -74,21 +77,17 @@ const Hero = () => {
                     mb-8 sm:mb-3 leading-relaxed font-bold px-4
                     hover:text-white transition-colors duration-300"
         >
-          {heroContent.description}
+          {t("hero.description")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
-          <a href="#projects">
-            <Button variant="default" colorMode="primary" size="lg">
-              {heroContent.ctaPrimary}
-            </Button>
-          </a>
+          <Button asChild variant="default" colorMode="primary" size="lg">
+            <a href="#projects">{t("hero.ctaPrimary")}</a>
+          </Button>
 
-          <a href="#contact">
-            <Button variant="default" colorMode="primary" size="lg">
-              {heroContent.ctaSecondary}
-            </Button>
-          </a>
+          <Button asChild variant="outline" colorMode="primary" size="lg">
+            <a href="#contact">{t("hero.ctaSecondary")}</a>
+          </Button>
         </div>
 
       </div>

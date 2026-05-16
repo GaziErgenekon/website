@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
 import PropTypes from "prop-types";
+import { Children, cloneElement, isValidElement } from "react";
 import { cn } from "../../libs/utils";
 
 const buttonVariants = cva(
@@ -263,13 +264,21 @@ const Button = ({
   colorMode,
   size,
   variant,
+  asChild = false,
   ...props
 }) => {
+  const classes = cn(buttonVariants({ className, colorMode, variant, size }));
+
+  if (asChild && isValidElement(children)) {
+    const child = Children.only(children);
+    return cloneElement(child, {
+      ...props,
+      className: cn(classes, child.props.className),
+    });
+  }
+
   return (
-    <button
-      className={cn(buttonVariants({ className, colorMode, variant, size }))}
-      {...props}
-    >
+    <button className={classes} {...props}>
       {children}
     </button>
   );
@@ -277,6 +286,7 @@ const Button = ({
 
 Button.propTypes = {
   className: PropTypes.string,
+  asChild: PropTypes.bool,
   children: PropTypes.node.isRequired,
   colorMode: PropTypes.oneOf([
     "default",
@@ -287,8 +297,15 @@ Button.propTypes = {
     "success",
     "info",
   ]),
-  size: PropTypes.oneOf(["default", "outline", "surface", "subtle"]),
-  variant: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
+  variant: PropTypes.oneOf([
+    "default",
+    "outline",
+    "surface",
+    "subtle",
+    "elevated",
+    "radial",
+  ]),
+  size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
 };
 
 export default Button;

@@ -3,10 +3,13 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ScrollTop from "./components/common/ScrollTop.jsx";
+import { LanguageProvider } from "./i18n/LanguageContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <ScrollTop />
-    <App />
-  </BrowserRouter>,
+  <LanguageProvider>
+    <BrowserRouter>
+      <ScrollTop />
+      <App />
+    </BrowserRouter>
+  </LanguageProvider>,
 );

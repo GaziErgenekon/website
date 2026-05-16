@@ -1,30 +1,33 @@
 import { highlights } from "../../constants";
+import { useLanguage } from "../../i18n/LanguageContext";
+import { asset } from "../../libs/utils";
 
 const AboutUs = () => {
+  const { t, tx } = useLanguage();
   return (
     <section>
       <div id="about-us" className="container my-16">
         <h3 className="sec-title text-4xl text-gradient-br from-foreground to-foreground/20 font-semibold">
-          Hakkımızda
+          {t("about.heading")}
         </h3>
         <div className="col-center sm:!flex-row sm:justify-center gap-12 md:gap-24 my-24 ">
-          <img src="/Ergenekon.png" className="h-24 object-cover" alt="" />
+          <img
+            src={asset("/Ergenekon.png")}
+            className="h-24 object-cover"
+            alt="Ergenekon"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="w-full sm:w-[500px]">
             <h6 className="text-3xl font-semibold mb-2 row-center gap-4">
               <img
-                src="/hawk.png"
+                src={asset("/hawk.png")}
                 className="size-12 object-contain inset-shadow-sm inset-shadow-secondary/20 border border-secondary/5 bg-radial-[at_50%_75%] from-secondary/10 to-100% rounded-full p-1.5"
                 alt=""
               />
-              Biz Kimiz?
+              {t("about.whoTitle")}
             </h6>
-            <p>
-              Modern dünyanın dijital tehditlerine boyun eğmeyecek, donanımlı
-              bireyler yetiştirmeyi amaç edinmiş Gazi Üniversitesi Siber
-              Güvenlik Araştırma ve Geliştirme Topluluğu’na bağlı, rekabetçi
-              ruhumuz ve azimli çalışmamız ile başarıdan başarıya koşmayı
-              hedefleyen bir takımız.
-            </p>
+            <p>{t("about.whoText")}</p>
           </div>
         </div>
       </div>
@@ -37,17 +40,12 @@ const AboutUs = () => {
                 <span className="text-gradient-br from-primary/80 to-primary/40 italic">
                   {"<"}
                 </span>
-                Neler Yapıyoruz
+                {t("about.whatTitle")}
                 <span className="text-gradient-br from-primary/80 to-primary/40 italic">
                   {"/>"}
                 </span>
               </h6>
-              <p className="mt-4">
-                Gazi Üniversitesi Siber Güvenlik Araştırma ve Geliştirme
-                Topluluğu'na bağlı olarak, sadece yarışmıyor; geleceğin
-                teknolojilerini bugünden tasarlıyoruz. Mühendislik
-                disiplinlerini bir araya getirerek projeler geliştiriyoruz.
-              </p>
+              <p className="mt-4">{t("about.whatText")}</p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 ">
                 {highlights.map((item, i) => (
@@ -60,9 +58,11 @@ const AboutUs = () => {
                     </div>
                     <div>
                       <h4 className="text-white font-bold text-lg">
-                        {item.title}
+                        {tx(item.title)}
                       </h4>
-                      <p className="text-gray-400 text-sm mt-1">{item.desc}</p>
+                      <p className="text-gray-400 text-sm mt-1">
+                        {tx(item.desc)}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -70,8 +70,10 @@ const AboutUs = () => {
             </div>
             <div className="lg:flex-2 xl:flex-1 h-96">
               <img
-                src="/galeri/sergi.JPG"
+                src={asset("/galeri/sergi.JPG")}
                 alt="Neler Yapıyoruz"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover rounded-lg shadow-lg border border-secondary/20"
               />
             </div>

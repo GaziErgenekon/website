@@ -6,7 +6,8 @@ import { IoIosArrowUp } from "react-icons/io";
 import Hamburger from "hamburger-react";
 import Button from "../ui/Button";
 import { useEffect } from "react";
-import { cn } from "../../libs/utils";
+import { cn, asset } from "../../libs/utils";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
@@ -14,19 +15,20 @@ const Header = () => {
   const [isOpen, setOpen] = useState(false);
 
   const { pathname } = useLocation();
+  const { t, lang, toggleLang } = useLanguage();
 
   const items = [
     {
-      text: "Hakkımızda",
+      text: t("nav.about"),
       href: "#about-us",
     },
     {
-      text: "Projelerimiz",
+      text: t("nav.projects"),
       href: "#projects",
     },
-    { text: "Başarılar", href: "#achievements" },
+    { text: t("nav.achievements"), href: "#achievements" },
     {
-      text: "Faaliyetler",
+      text: t("nav.activities"),
       isDropdown: true,
       dropdownLinks: [
         {
@@ -34,11 +36,16 @@ const Header = () => {
           isLink: true,
           linkHref: "/idef",
         },
+        {
+          text: "5G Konumlandırma Yarışması",
+          isLink: true,
+          linkHref: "/5g-konumlandirma",
+        },
       ],
     },
-    { text: "Ekibimiz", href: "/ekibimiz", isPageLink: true },
-    { text: "İletişim", href: "#contact" },
-    { text: "Bize Katıl", href: "/bize-katil", isLink: true },
+    { text: t("nav.team"), href: "/ekibimiz", isPageLink: true },
+    { text: t("nav.contact"), href: "#contact" },
+    { text: t("nav.join"), href: "/bize-katil", isLink: true },
   ];
 
   const handleScroll = useCallback(
@@ -68,18 +75,18 @@ const Header = () => {
   const toggleMenuItems = [
     {
       key: "about",
-      text: "Hakkımızda",
+      text: t("nav.about"),
       href: "#about-us",
     },
     {
       key: "projects",
-      text: "Projeler",
+      text: t("nav.projects"),
       href: "#projects",
     },
-    { key: "achievements", text: "Başarılar", href: "#achievements" },
+    { key: "achievements", text: t("nav.achievements"), href: "#achievements" },
     {
       key: "activities",
-      text: "Faaliyetler",
+      text: t("nav.activities"),
       isSubMenu: true,
       subMenuItems: [
         {
@@ -87,11 +94,16 @@ const Header = () => {
           text: "IDEF'25",
           href: "/idef",
         },
+        {
+          key: "5g",
+          text: "5G Konumlandırma Yarışması",
+          href: "/5g-konumlandirma",
+        },
       ],
     },
-    { key: "team", text: "Ekibimiz", href: "/ekibimiz", isPageLink: true },
-    { key: "contact", text: "İletişim", href: "#contact" },
-    { key: "bize-katil", text: "Bize Katıl", href: "/bize-katil", isLink: true },
+    { key: "team", text: t("nav.team"), href: "/ekibimiz", isPageLink: true },
+    { key: "contact", text: t("nav.contact"), href: "#contact" },
+    { key: "bize-katil", text: t("nav.join"), href: "/bize-katil", isLink: true },
   ];
 
   const handleToggleSubMenu = (key) => {
@@ -123,14 +135,14 @@ const Header = () => {
         <div className="row-center gap-4 font-mono text-2xl font-semibold">
           <a href="https://gazisiber.org/" target="_blank">
             <img
-              src="/logo-removebg-preview.png"
+              src={asset("/logo-removebg-preview.png")}
               alt="Gazi-Siber-Logo"
               className="h-12 xls:h-16 "
             />
           </a>
           <Link to="/">
             <img
-              src="/Ergenekon.png"
+              src={asset("/Ergenekon.png")}
               alt="Ergenekon-Logo"
               className="h-12 xls:h-16"
             />
@@ -171,14 +183,36 @@ const Header = () => {
                   )}
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={toggleLang}
+                  aria-label="Dil değiştir / Change language"
+                  className="text-sm font-bold tracking-wide border border-foreground/20 rounded-full px-3 py-1 hover:border-primary/60 transition-colors cursor-pointer"
+                >
+                  <span className={lang === "tr" ? "text-primary" : "text-foreground/40"}>TR</span>
+                  <span className="text-foreground/30 mx-1">|</span>
+                  <span className={lang === "en" ? "text-primary" : "text-foreground/40"}>EN</span>
+                </button>
+              </li>
             </ul>
           </nav>
         ) : (
-          <Button variant="radial" colorMode="primary" size="lg" className="rounded-full px-8">
-            <Link to="/">
-              Ana Sayfa
-            </Link>
-          </Button>
+          <div className="row-center gap-4">
+            <button
+              onClick={toggleLang}
+              aria-label="Dil değiştir / Change language"
+              className="text-sm font-bold tracking-wide border border-foreground/20 rounded-full px-3 py-1 hover:border-primary/60 transition-colors cursor-pointer"
+            >
+              <span className={lang === "tr" ? "text-primary" : "text-foreground/40"}>TR</span>
+              <span className="text-foreground/30 mx-1">|</span>
+              <span className={lang === "en" ? "text-primary" : "text-foreground/40"}>EN</span>
+            </button>
+            <Button asChild variant="radial" colorMode="primary" size="lg" className="rounded-full px-8">
+              <Link to="/">
+                {t("nav.home")}
+              </Link>
+            </Button>
+          </div>
         )}
       </div>
       {isOpen && isHomePage && (
@@ -224,6 +258,17 @@ const Header = () => {
                 )}
               </li>
             ))}
+            <li className="text-lg w-full pt-2">
+              <button
+                onClick={toggleLang}
+                aria-label="Dil değiştir / Change language"
+                className="text-base font-bold tracking-wide border border-foreground/20 rounded-full px-4 py-1.5 hover:border-primary/60 transition-colors cursor-pointer"
+              >
+                <span className={lang === "tr" ? "text-primary" : "text-foreground/40"}>TR</span>
+                <span className="text-foreground/30 mx-1.5">|</span>
+                <span className={lang === "en" ? "text-primary" : "text-foreground/40"}>EN</span>
+              </button>
+            </li>
           </ul>
         </div>
       )}
