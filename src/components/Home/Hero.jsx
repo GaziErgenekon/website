@@ -1,6 +1,7 @@
 import ParticleBackground from "../common/ParticleBackground";
 import Button from "../ui/Button";
 import { useLanguage } from "../../i18n/LanguageContext";
+import { asset } from "../../libs/utils";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -14,7 +15,8 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative bg-[url('/hero-bg.jpg')] min-h-screen flex-center 
+      style={{ backgroundImage: `url(${asset("/hero-bg.jpg")})` }}
+      className="relative min-h-screen flex-center
                  bg-cover bg-center bg-no-repeat"
     >
       <ParticleBackground />
@@ -28,7 +30,7 @@ const Hero = () => {
 
       <div className="relative text-center">
         <img
-          src="/logo-full.png"
+          src={asset("/logo-full.png")}
           alt="Ergenekon Logo"
           className="w-48 sm:w-64 md:w-80 object-contain mx-auto mb-4 sm:mb-6 animate-pulse-slow hover:scale-110 hover:rotate-3 
                              transition-all duration-700 ease-out cursor-pointer

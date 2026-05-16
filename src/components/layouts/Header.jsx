@@ -6,7 +6,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import Hamburger from "hamburger-react";
 import Button from "../ui/Button";
 import { useEffect } from "react";
-import { cn } from "../../libs/utils";
+import { cn, asset } from "../../libs/utils";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 const Header = () => {
@@ -135,14 +135,14 @@ const Header = () => {
         <div className="row-center gap-4 font-mono text-2xl font-semibold">
           <a href="https://gazisiber.org/" target="_blank">
             <img
-              src="/logo-removebg-preview.png"
+              src={asset("/logo-removebg-preview.png")}
               alt="Gazi-Siber-Logo"
               className="h-12 xls:h-16 "
             />
           </a>
           <Link to="/">
             <img
-              src="/Ergenekon.png"
+              src={asset("/Ergenekon.png")}
               alt="Ergenekon-Logo"
               className="h-12 xls:h-16"
             />

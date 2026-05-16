@@ -4,6 +4,35 @@ import {
   FaRocket,
   FaShieldAlt,
 } from "react-icons/fa";
+import { asset } from "../libs/utils";
+
+// Yalnızca varlık (asset) alanlarını dağıtım tabanına göre öneklendirir.
+// Rota yolları (link/to/slug), harici url/embed/linkedin değerleri ASLA
+// dokunulmaz çünkü anahtar adları bu kümede değildir.
+const ASSET_KEYS = new Set([
+  "img",
+  "image",
+  "mainImage",
+  "logo",
+  "heroImage",
+  "aboutLogo",
+  "bgImage",
+]);
+
+function pa(value, key) {
+  if (typeof value === "string") {
+    return key && ASSET_KEYS.has(key) ? asset(value) : value;
+  }
+  if (Array.isArray(value)) {
+    return value.map((v) => pa(v));
+  }
+  if (value && typeof value === "object") {
+    const out = {};
+    for (const k in value) out[k] = pa(value[k], k);
+    return out;
+  }
+  return value;
+}
 
 // Çevrilebilir alanlar { tr, en } biçimindedir; özel adlar (kişi, kurum,
 // proje kod adları) düz string bırakılmıştır. tx() helper'ı ile okunur.
@@ -43,16 +72,16 @@ export const highlights = [
   },
 ];
 
-export const stakeholders = [
+export const stakeholders = pa([
   { name: "Gazi Üniversitesi", img: "/logolar/gazi_logo.jpg" },
   { name: "Gazisiber", img: "/logolar/gazisiber_logo.png" },
-];
+]);
 
-export const sponsors = [
+export const sponsors = pa([
   { name: "Gazi Teknopark", img: "/logolar/teknopark_logo.png" },
-];
+]);
 
-export const achievements = [
+export const achievements = pa([
   {
     id: 1,
     year: "2025",
@@ -151,7 +180,7 @@ export const achievements = [
       },
     ],
   },
-];
+]);
 
 // Haberler / Duyurular — en yeni en üstte. (İçerik taslak; gözden geçirilebilir.)
 export const news = [
@@ -223,7 +252,7 @@ export const galleryImages = [
   "/galeri/3f095a80-c876-44f6-b341-47040b71e3c3.JPG",
   "/galeri/95d4909b-fa17-43a2-a6ff-1d4afdafdbb0.JPG",
   "/galeri/sergi.JPG",
-];
+].map(asset);
 
 export const mainGalleryImages = [
   "/oduller/UDHAM_odul.jpeg",
@@ -231,7 +260,7 @@ export const mainGalleryImages = [
   "/oduller/SamsunHackathon_oduller.jpg",
   "/galeri/sergi.JPG",
   "/oduller/idef_burkay.JPG",
-];
+].map(asset);
 
 const ROLES = {
   captain: { tr: "Takım Kaptanı", en: "Team Captain" },
@@ -243,7 +272,7 @@ const ROLES = {
   electronics: { tr: "Elektronik Mühendis", en: "Electronics Engineer" },
 };
 
-export const teamStructure = {
+export const teamStructure = pa({
   leadership: [
     {
       role: ROLES.captain,
@@ -422,7 +451,7 @@ export const teamStructure = {
       },
     ],
   },
-};
+});
 
 export const tabLabels = {
   software: { tr: "Yazılım Ekibi", en: "Software Team" },
@@ -453,7 +482,7 @@ export const stats = [
   },
 ];
 
-export const teamContact = {
+export const teamContact = pa({
   name: "Abdullah ZEYNEL",
   title: { tr: "Takım Kaptanı", en: "Team Captain" },
   email: "info@teamergenekon.org",
@@ -463,9 +492,9 @@ export const teamContact = {
   instagram: "https://www.instagram.com/team.ergenekon",
   linktree: "https://linktr.ee/ergenekon",
   location: "Gazi Üniversitesi, Ankara",
-};
+});
 
-export const projectsData = [
+export const projectsData = pa([
   {
     id: 1,
     slug: "burkay",
@@ -556,14 +585,14 @@ export const projectsData = [
       },
     ],
   },
-];
+]);
 
 export const UNIVERSITY_MAP_ADDRESS =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.1899654684794!2d32.81888537565268!3d39.9371402846898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34eda7057c303%3A0x3839e3df56fce542!2sGazi%20University%20Faculty%20of%20Technology!5e0!3m2!1sen!2str!4v1757607860167!5m2!1sen!2str";
 
 // Faaliyet sayfaları — ortak ActivityPage component'i ile render edilir.
 // Yeni faaliyet eklemek için buraya bir kayıt eklemek yeterlidir.
-export const activities = {
+export const activities = pa({
   idef: {
     slug: "idef",
     pageTitle: { tr: "IDEF'25 Yolculuğumuz", en: "Our IDEF'25 Journey" },
@@ -712,6 +741,6 @@ export const activities = {
       "/oduller/5G_odul.jpg",
       "/galeri/5g_konum_1.jpg",
       "/galeri/5g_konum_2.jpg",
-    ],
+    ].map(asset),
   },
-};
+});

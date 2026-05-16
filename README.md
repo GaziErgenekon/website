@@ -52,11 +52,13 @@ npm run preview  # build önizleme
 - Tüm site iki dilli; Header'da **TR | EN** geçişi (localStorage'da kalıcı,
   `<html lang>` güncellenir).
 
-### Yayın: hem `/` hem `/test/`
-- Router `basename` runtime'da dinamik: URL `/test` ile başlıyorsa `/test`,
-  değilse `/`. Tek GitHub Pages deploy'undan **teamergenekon.org/** ve
-  **teamergenekon.org/test/** aynı anda çalışır (kök-mutlak asset'ler +
-  `404.html` SPA fallback).
+### Yayın
+
+Normal tek GitHub Pages deploy'u: `master`/`main`'e push edilince
+`.github/workflows/deploy.yml` çalışır, `npm run build` ile `dist/` üretilir
+ve **teamergenekon.org/** köküne yayınlanır. (`/test/` alt yolu yoktur —
+kaldırıldı.) `asset()` helper'ı kök tabanda (`/`) yolları değiştirmez;
+ileride bir alt yola taşınmak gerekirse hazır altyapı sağlar.
 
 ## Gözden geçirilmesi önerilenler
 - EN çevirileri (özellikle teknik/savunma terimleri).

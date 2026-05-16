@@ -2,6 +2,7 @@ import React from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../i18n/LanguageContext";
+import { asset } from "../../libs/utils";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -24,13 +25,13 @@ const Footer = () => {
             <div className="row-center gap-4 font-mono text-2xl font-semibold">
               <a href="https://gazisiber.org/" target="_blank">
                 <img
-                  src="/logo-removebg-preview.png"
+                  src={asset("/logo-removebg-preview.png")}
                   alt="Logo"
                   className="h-16"
                 />
               </a>
               <Link to="/">
-                <img src="/Ergenekon.png" alt="Logo" className="h-16" />
+                <img src={asset("/Ergenekon.png")} alt="Logo" className="h-16" />
               </Link>
             </div>
             <p className="mt-6 text-sm lg:text-base">

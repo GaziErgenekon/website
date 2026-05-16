@@ -1,5 +1,6 @@
 import { highlights } from "../../constants";
 import { useLanguage } from "../../i18n/LanguageContext";
+import { asset } from "../../libs/utils";
 
 const AboutUs = () => {
   const { t, tx } = useLanguage();
@@ -11,7 +12,7 @@ const AboutUs = () => {
         </h3>
         <div className="col-center sm:!flex-row sm:justify-center gap-12 md:gap-24 my-24 ">
           <img
-            src="/Ergenekon.png"
+            src={asset("/Ergenekon.png")}
             className="h-24 object-cover"
             alt="Ergenekon"
             loading="lazy"
@@ -20,7 +21,7 @@ const AboutUs = () => {
           <div className="w-full sm:w-[500px]">
             <h6 className="text-3xl font-semibold mb-2 row-center gap-4">
               <img
-                src="/hawk.png"
+                src={asset("/hawk.png")}
                 className="size-12 object-contain inset-shadow-sm inset-shadow-secondary/20 border border-secondary/5 bg-radial-[at_50%_75%] from-secondary/10 to-100% rounded-full p-1.5"
                 alt=""
               />
@@ -69,7 +70,7 @@ const AboutUs = () => {
             </div>
             <div className="lg:flex-2 xl:flex-1 h-96">
               <img
-                src="/galeri/sergi.JPG"
+                src={asset("/galeri/sergi.JPG")}
                 alt="Neler Yapıyoruz"
                 loading="lazy"
                 decoding="async"
