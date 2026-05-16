@@ -40,34 +40,34 @@ function pa(value, key) {
 export const highlights = [
   {
     icon: FaRocket,
-    title: { tr: "Gelişmiş Ar-Ge", en: "Advanced R&D" },
+    title: { tr: "Ar-Ge ve İnovasyon", en: "R&D and Innovation" },
     desc: {
-      tr: "Hava savunma ve 5G teknolojileri üzerine inovatif projeler.",
-      en: "Innovative projects on air defense and 5G technologies.",
+      tr: "Savunma sanayii ve kritik altyapılar için özgün, donanım-yazılım entegre çözümler geliştiriyoruz.",
+      en: "Developing indigenous, hardware-software integrated solutions for the defense industry and critical infrastructures.",
     },
   },
   {
     icon: FaShieldAlt,
-    title: { tr: "Siber Güvenlik", en: "Cyber Security" },
+    title: { tr: "Haberleşme Güvenliği", en: "Communication Security" },
     desc: {
-      tr: "Güvenli haberleşme protokolleri ve CTF yetkinliği.",
-      en: "Secure communication protocols and CTF expertise.",
+      tr: "Uydu sistemleri ve 5G ağlarında veri gizliliğini sağlayan kuantum dirençli algoritmalar tasarlıyoruz.",
+      en: "Designing quantum-resistant algorithms ensuring data privacy in satellite systems and 5G networks.",
     },
   },
   {
     icon: FaBrain,
-    title: { tr: "Yapay Zeka", en: "Artificial Intelligence" },
+    title: { tr: "Otonom Sistemler & AI", en: "Autonomous Systems & AI" },
     desc: {
-      tr: "Otonom hedef tespiti ve AI model eğitimi.",
-      en: "Autonomous target detection and AI model training.",
+      tr: "Hava savunma sistemlerinde yüksek hassasiyetli hedef tespiti ve otonom takip yetenekleri üretiyoruz.",
+      en: "Producing high-precision target detection and autonomous tracking capabilities in air defense systems.",
     },
   },
   {
     icon: FaDraftingCompass,
-    title: { tr: "Prototipleme", en: "Prototyping" },
+    title: { tr: "Sistem Entegrasyonu", en: "System Integration" },
     desc: {
-      tr: "Endüstriyel tasarım ve fiziksel üretim kabiliyeti.",
-      en: "Industrial design and physical manufacturing capability.",
+      tr: "Kavramsal tasarımdan sahadaki testlere kadar tüm elektronik ve mekanik süreçleri yönetiyoruz.",
+      en: "Managing all electronic and mechanical processes from conceptual design to field tests.",
     },
   },
 ];
@@ -501,19 +501,19 @@ export const projectsData = pa([
     title: "BURKAY",
     category: "Air Defense Systems",
     description: {
-      tr: "Lazer güdümlü ve yapay zeka tabanlı akıllı hava savunma sistemi. Video Kabiliyet Gösterimi aşamasına kadar ilerlemiştir.",
-      en: "Laser-guided, AI-based smart air defense system. Progressed up to the Video Capability Demonstration stage.",
+      tr: "Yapay zeka destekli hedef tespiti ve tam otonom lazer güdüm kabiliyetlerine sahip milli hava savunma sistemi.",
+      en: "National air defense system with AI-assisted target detection and fully autonomous laser guidance capabilities.",
     },
     fullDescription: {
-      tr: "BURKAY projesi, lazer güdümlü ve yapay zeka tabanlı akıllı hava savunma sistemi olarak tasarlanmıştır. Proje, düşman insansız hava araçlarını tespit etmek ve etkisiz hale getirmek için geliştirilen yenilikçi bir sistemdir. Video Kabiliyet Gösterimi aşamasına kadar başarıyla ilerlemiştir.",
-      en: "The BURKAY project is designed as a laser-guided, AI-based smart air defense system. It is an innovative system developed to detect and neutralize hostile unmanned aerial vehicles. It has successfully progressed up to the Video Capability Demonstration stage.",
+      tr: "BURKAY, asimetrik tehditlere ve insansız hava araçlarına karşı geliştirilen, yapay zeka tabanlı elektro-optik hedef tespiti ve otonom lazer güdüm sistemine sahip entegre bir hava savunma platformudur. Kritik Tasarım Raporu (KTR) aşamasını başarıyla geçmiş olup, IDEF'25 Uluslararası Savunma Sanayii Fuarı'nda sergilenmeye hak kazanmıştır.",
+      en: "BURKAY is an integrated air defense platform with an AI-based electro-optical target detection and autonomous laser guidance system, developed against asymmetric threats and unmanned aerial vehicles. Having successfully passed the Critical Design Report (CDR) stage, it qualified to be exhibited at the IDEF'25 International Defense Industry Fair.",
     },
     image: "/project_images/burkay.png",
     status: { tr: "Aktif Geliştirme", en: "Active Development" },
     year: "2024",
     achievements: [
-      { tr: "Video Kabiliyet Gösterimi", en: "Video Capability Demonstration" },
-      { tr: "BAP Desteği", en: "BAP Funding" },
+      { tr: "Kritik Tasarım Raporu (KTR)", en: "Critical Design Report (CDR)" },
+      { tr: "IDEF'25 Katılımı", en: "IDEF'25 Participation" },
     ],
   },
   {
@@ -522,12 +522,12 @@ export const projectsData = pa([
     title: "KIZILYEL",
     category: "5G Positioning",
     description: {
-      tr: "TEKNOFEST 5G Konumlandırma Yarışması'nda 'En Özgün Yazılım' ödülü alan projemiz.",
-      en: "Our project that won the 'Most Original Software' award at the TEKNOFEST 5G Positioning Competition.",
+      tr: "5G sinyallerini işleyerek yüksek hassasiyetli konum tahmini yapan ve 'En Özgün Yazılım' ödülüne layık görülen algoritmamız.",
+      en: "Our algorithm that makes high-precision position estimation by processing 5G signals, awarded the 'Most Original Software'.",
     },
     fullDescription: {
-      tr: "KIZILYEL projesi, 5G teknolojileri kullanarak yüksek hassasiyetli konum belirleme sistemi geliştirmektedir. TEKNOFEST 5G Konumlandırma Yarışması'nda 'En Özgün Yazılım' ödülünü kazanmış olan proje, savunma, lojistik ve acil müdahale senaryolarında kullanılmak üzere tasarlanmıştır.",
-      en: "The KIZILYEL project develops a high-precision positioning system using 5G technologies. Having won the 'Most Original Software' award at the TEKNOFEST 5G Positioning Competition, the project is designed for use in defense, logistics and emergency response scenarios.",
+      tr: "KIZILYEL, baz istasyonlarından alınan 5G test ağı verilerini makine öğrenmesi modelleriyle işleyerek, dış mekanda GPS'ten bağımsız, yüksek doğruluklu konum tespiti sağlayan yerli bir yazılım mimarisidir. TEKNOFEST 5G Konumlandırma Yarışması'nda yenilikçi yaklaşımıyla Türkiye 5.'liği ve 'En Özgün Yazılım' ödülünü kazanmıştır.",
+      en: "KIZILYEL is an indigenous software architecture that provides GPS-independent, high-accuracy outdoor positioning by processing 5G test network data from base stations with machine learning models. It won 5th place in Türkiye and the 'Most Original Software' award at the TEKNOFEST 5G Positioning Competition with its innovative approach.",
     },
     image: "/project_images/kizilyel.png",
     status: { tr: "Tamamlandı", en: "Completed" },
@@ -537,7 +537,7 @@ export const projectsData = pa([
         tr: "TEKNOFEST En Özgün Yazılım Ödülü",
         en: "TEKNOFEST Most Original Software Award",
       },
-      { tr: "5G İnovasyon", en: "5G Innovation" },
+      { tr: "Türkiye 5.'liği", en: "5th Place in Türkiye" },
     ],
   },
   {
@@ -546,19 +546,19 @@ export const projectsData = pa([
     title: "GÖKYEL",
     category: "Satellite Communication",
     description: {
-      tr: "Güvenli Uydu Haberleşmesi projesi. Fikir detay raporu aşamasına kadar başarıyla gelmiştir.",
-      en: "Secure Satellite Communication project. Successfully reached the idea detail report stage.",
+      tr: "Kritik altyapılar için milli ve yerli çözümlerle donatılmış şifreli uydu haberleşme sistemi konseptimiz.",
+      en: "Our encrypted satellite communication system concept equipped with national and indigenous solutions for critical infrastructures.",
     },
     fullDescription: {
-      tr: "GÖKYEL projesi, güvenli ve şifreli uydu haberleşmesi sağlamak amacıyla geliştirilmektedir. Milli ve yerli çözümlerle donatılan sistem, kritik altyapı ve savunma haberleşmesinde kullanılmak üzere tasarlanmıştır. Fikir detay raporu aşamasına kadar başarıyla ilerlemiştir.",
-      en: "The GÖKYEL project is being developed to provide secure and encrypted satellite communication. Equipped with national and indigenous solutions, the system is designed for use in critical infrastructure and defense communications. It has successfully progressed up to the idea detail report stage.",
+      tr: "GÖKYEL, savunma sanayii ve stratejik haberleşme ağlarında veri güvenliğini en üst düzeye çıkarmak için tasarlanan güvenli uydu haberleşme projesidir. Veri sızıntılarını önlemek ve kesintisiz iletişimi garanti altına almak amacıyla özel şifreleme katmanları ve donanım mimarileri üzerine çalışılmaktadır.",
+      en: "GÖKYEL is a secure satellite communication project designed to maximize data security in the defense industry and strategic communication networks. It focuses on custom encryption layers and hardware architectures to prevent data leaks and guarantee uninterrupted communication.",
     },
     image: "/project_images/gokyel.png",
     status: { tr: "Planlama", en: "Planning" },
     year: "2024",
     achievements: [
-      { tr: "Fikir Detay Raporu", en: "Idea Detail Report" },
-      { tr: "TÜBİTAK Başvurusu", en: "TÜBİTAK Application" },
+      { tr: "Konsept Tasarım", en: "Concept Design" },
+      { tr: "Haberleşme Güvenliği", en: "Communication Security" },
     ],
   },
   {
@@ -567,12 +567,12 @@ export const projectsData = pa([
     title: "KUANT-US",
     category: "Quantum Security",
     description: {
-      tr: "Kuantum Dirençli, Otonom ve Donanım Uyumlu Uydu Güvenliği Sistemi. UDHAM mansiyon ödülü sahibi.",
-      en: "Quantum-Resistant, Autonomous and Hardware-Compatible Satellite Security System. UDHAM honorable mention winner.",
+      tr: "Yeni nesil siber tehditlere karşı kuantum dirençli algoritmalarla korunan otonom uydu güvenliği sistemi.",
+      en: "Autonomous satellite security system protected by quantum-resistant algorithms against next-generation cyber threats.",
     },
     fullDescription: {
-      tr: "KUANT-US, kuantum bilgisayarlara karşı dirençli şifreleme algoritmaları kullanarak uydu haberleşmesinin güvenliğini sağlamayı hedefleyen bir projedir. Otonom çalışma kapasitesi ve mevcut donanımlarla uyumlu tasarımıyla öne çıkmaktadır. UDHAM yarışmasında mansiyon ödülü kazanmıştır.",
-      en: "KUANT-US is a project that aims to secure satellite communication using encryption algorithms resistant to quantum computers. It stands out with its autonomous operation capacity and its design compatible with existing hardware. It won an honorable mention at the UDHAM competition.",
+      tr: "KUANT-US, geleceğin kuantum bilgisayar tehditlerine karşı uydu haberleşmesini güvence altına almak için post-kuantum kriptografik algoritmaları entegre eden, donanım uyumlu ve otonom bir güvenlik mimarisidir. UDHAM 3. Ar-Ge Fikir Yarışması'nda 'En Verimli' kategorisinde mansiyon ödülü ile tescillenmiştir.",
+      en: "KUANT-US is a hardware-compatible and autonomous security architecture that integrates post-quantum cryptographic algorithms to secure satellite communication against future quantum computing threats. It was registered with an honorable mention in the 'Most Efficient' category at the UDHAM 3rd R&D Idea Competition.",
     },
     image: "/logo-full.png",
     status: { tr: "Aktif Geliştirme", en: "Active Development" },
@@ -580,8 +580,8 @@ export const projectsData = pa([
     achievements: [
       { tr: "UDHAM Mansiyon Ödülü", en: "UDHAM Honorable Mention" },
       {
-        tr: "Kuantum Şifreleme Araştırması",
-        en: "Quantum Encryption Research",
+        tr: "Kuantum Şifreleme",
+        en: "Quantum Encryption",
       },
     ],
   },
