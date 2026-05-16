@@ -1,17 +1,19 @@
 import React from 'react';
 import { sponsors } from '../../constants';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const Supporters = () => {
+  const { t } = useLanguage();
   return (
     <section className="w-full py-20 bg-background text-foreground">
       <div className="container px-4 mx-auto">
 
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 sec-title">
-            <span className="text-gradient-b from-foreground to-foreground/70">Sponsorlarımız</span>
+            <span className="text-gradient-b from-foreground to-foreground/70">{t("supporters.heading")}</span>
           </h2>
           <p className="text-foreground/60 text-lg font-light">
-            Bize inanan ve yolculuğumuzda yanımızda olan değerli sponsorlarımız.
+            {t("supporters.subtitle")}
           </p>
         </div>
 
@@ -25,6 +27,8 @@ const Supporters = () => {
                 <img
                   src={item.img}
                   alt={item.name}
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-full max-w-full object-contain transition-all duration-500"
                 />
               </div>

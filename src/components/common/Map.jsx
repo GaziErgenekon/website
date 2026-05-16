@@ -11,7 +11,6 @@ const Map = ({ src, className, ...props }) => {
         height="450"
         className={cn("border-0 mt-12 mb-24 invert-100", className)}
         loading="lazy"
-        allowTransparency="true"
         referrerPolicy="no-referrer-when-downgrade"
         {...props}
       ></iframe>

@@ -37,7 +37,9 @@ const GalleryTemplate = ({ headerTitle = "", imagesArr = [] }) => {
           >
             <img
               src={img}
-              alt={`Gallery ${i}`}
+              alt={`Galeri ${i + 1}`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">

@@ -14,7 +14,6 @@
     "@tailwindcss/vite": "^4.1.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.26.2",
     "hamburger-react": "^2.5.2",
     "lodash": "^4.17.23",
     "prop-types": "^15.8.1",

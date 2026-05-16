@@ -1,29 +1,19 @@
 import React from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   const links = [
-    {
-      text: "Hakkımızda",
-      href: "#about-us",
-    },
-    {
-      text: "Projelerimiz",
-      href: "#projects",
-    },
-    {
-      text: "Başarılar",
-      href: "#achievements",
-    },
-    {
-      text: "Ekibimiz",
-      href: "/ekibimiz",
-    },
-    {
-      text: "İletişim",
-      href: "#contact",
-    },
+    { key: "nav.about", href: "/#about-us" },
+    { key: "nav.projects", href: "/#projects" },
+    { key: "nav.achievements", href: "/#achievements" },
+    { key: "nav.news", href: "/#news" },
+    { key: "nav.team", href: "/ekibimiz" },
+    { key: "nav.contact", href: "/#contact" },
+    { key: "nav.join", href: "/bize-katil" },
   ];
 
   return (
@@ -44,19 +34,24 @@ const Footer = () => {
               </Link>
             </div>
             <p className="mt-6 text-sm lg:text-base">
-              Milli Savunma ve İleri Teknoloji alanlarında yenilikçi, yerli ve
-              milli çözümler üreten; Gazi Üniversitesi bünyesinde faaliyet
-              gösteren köklü bir Ar-Ge topluluğuyuz.
+              {t("footer.desc")}
             </p>
           </div>
 
           <div className="flex flex-1 max-sm:mt-7">
             <div className="inline-flex flex-col sm:mx-auto xl:ms-auto xl:me-12">
-              <h6 className="font-semibold text-lg">Hızlı Linkler</h6>
+              <h6 className="font-semibold text-lg">
+                {t("footer.quickLinks")}
+              </h6>
               <ul className="col-start gap-3 mt-2">
                 {links.map((link) => (
-                  <li>
-                    <Link to={link.href}>{link.text}</Link>
+                  <li key={link.key}>
+                    <Link
+                      to={link.href}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {t(link.key)}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -64,12 +59,16 @@ const Footer = () => {
           </div>
           <div className="flex-1 flex max-sm:mt-7">
             <div className="inline-flex flex-col sm:ms-auto">
-              <h6 className="font-semibold text-lg mb-3">Adres</h6>
+              <h6 className="font-semibold text-lg mb-3">
+                {t("footer.address")}
+              </h6>
               <div className="italic">
                 Emniyet, Milas Sk. No:30, 06560 Yenimahalle/Ankara
               </div>
 
-              <h6 className="font-semibold text-lg mt-3">İletişim</h6>
+              <h6 className="font-semibold text-lg mt-3">
+                {t("footer.contact")}
+              </h6>
               <div className="row-center gap-3 my-4">
                 <div className="rounded-full inset-shadow-sm p-3 inset-shadow-primary/40 border border-primary/40">
                   <a
@@ -92,7 +91,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-12 text-center italic border-t pt-6">
-          © Copyright 2025. All Rights Reserved. Powered by Ergenekon R&D Team
+          {t("footer.rights")}
         </div>
       </div>
     </footer>
