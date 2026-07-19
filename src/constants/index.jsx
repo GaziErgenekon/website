@@ -368,20 +368,6 @@ export const teamStructure = pa({
         linkedin: "https://www.linkedin.com/in/göktuğgezer",
       },
       {
-        name: "Ege ERTEKİN",
-        role: ROLES.developer,
-        image: "/uyeler_images/ege_ertekin.png",
-        linkedin:
-          "https://www.linkedin.com/in/egertekin?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-      },
-      {
-        name: "Melda KAHRAMAN",
-        role: ROLES.developer,
-        image: "/uyeler_images/melda_kahraman.png",
-        linkedin:
-          "https://www.linkedin.com/in/melda-kahraman-94b181200?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-      },
-      {
         name: "Recep KARABULUT",
         role: ROLES.developer,
         image: "/uyeler_images/recep_karabulut.jpg",
