@@ -431,7 +431,7 @@ export const teamStructure = pa({
       {
         name: "Mehmet Asaf AKDOĞAN",
         role: ROLES.electronics,
-        image: "/uyeler_images/mehmet_asaf_akdogan.jpeg",
+        image: "/uyeler_images/mehmet_asaf_akdogan.jpg",
         linkedin:
           "https://www.linkedin.com/in/mehmet-asaf-akdo%C4%9Fan-85b822225/",
       },
