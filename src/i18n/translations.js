@@ -75,10 +75,10 @@ export const translations = {
       failTitle: "İşlem Başarısız",
       successTitle: "İşlem Başarılı",
       fillAll: "Formdaki alanların tamamını lütfen doldurun",
-      invalidEmail: "Lütfen doğru formatta bir email adresi girin",
+      invalidEmail: "Lütfen doğru formatta bir e-posta adresi girin",
       subjectMax: "Konu alanı maksimum 75 karakter olabilir",
       messageMax: "Mesaj alanı maksimum 300 karakter olabilir",
-      sentOk: "Mesajınız başarılı şekilde gönderildi.",
+      sentOk: "Mesajınız başarıyla gönderildi.",
       sendError:
         "Mesajınız gönderilirken bir hata oluştu. Daha sonra tekrar deneyin.",
     },
@@ -109,7 +109,7 @@ export const translations = {
     },
     error: {
       title: "İstediğiniz sayfa bulunamadı :(",
-      text: "Lütfen başka bir sayfayı aramayı deneyin veya ana sayfaya dönmeyi deneyin.",
+      text: "Lütfen başka bir sayfa aramayı ya da ana sayfaya dönmeyi deneyin.",
     },
     loading: "Yükleniyor...",
     meta: {

@@ -10,6 +10,10 @@ import toast from "react-hot-toast";
 import isEmpty from "lodash/isEmpty";
 import { useLanguage } from "../../i18n/LanguageContext";
 
+// İletişim formu geçici olarak gizlendi: gönderilen yanıtlar sisteme ulaşmıyor.
+// Sorun giderilince bu bayrağı true yapmak yeterli, form kodu olduğu gibi duruyor.
+const SHOW_CONTACT_FORM = false;
+
 const Contact = () => {
   const [isLoading, setLoading] = useState(false);
   const { t, tx } = useLanguage();
@@ -102,7 +106,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="flex justify-center mb-16">
+        <div className={SHOW_CONTACT_FORM ? "flex justify-center mb-16" : "flex justify-center"}>
           <div className="col-center md:!flex-row gap-6 p-6 rounded-2xl border border-secondary/20 bg-transparent hover:border-primary/40 transition-all duration-300 w-full md:w-auto">
             <div className="size-24 md:size-32 rounded-full p-1 border border-primary/30">
               <img
@@ -151,6 +155,7 @@ const Contact = () => {
           </div>
         </div>
 
+        {SHOW_CONTACT_FORM && (
         <div className="w-full">
           <form onSubmit={onSubmit} className="flex flex-col gap-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -231,6 +236,7 @@ const Contact = () => {
             </div>
           </form>
         </div>
+        )}
       </div>
     </section>
   );
