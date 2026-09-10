@@ -33,7 +33,7 @@ export const translations = {
       heading: "Hakkımızda",
       whoTitle: "Biz Kimiz?",
       whoText:
-        "Modern dünyanın dijital tehditlerine boyun eğmeyecek, donanımlı bireyler yetiştirmeyi amaç edinmiş Gazi Üniversitesi Siber Güvenlik Araştırma ve Geliştirme Topluluğu’na bağlı, rekabetçi ruhumuz ve azimli çalışmamız ile başarıdan başarıya koşmayı hedefleyen bir takımız.",
+        "Modern dünyanın dijital tehditlerine boyun eğmeyecek, donanımlı bireyler yetiştirmeyi amaç edinmiş Gazi Üniversitesi Siber Güvenlik Araştırma ve Geliştirme Topluluğu'na bağlı, rekabetçi ruhumuz ve azimli çalışmamız ile başarıdan başarıya koşmayı hedefleyen bir takımız.",
       whatTitle: "Neler Yapıyoruz",
       whatText:
         "Gazi Üniversitesi Siber Güvenlik Araştırma ve Geliştirme Topluluğu'na bağlı olarak, sadece yarışmıyor; geleceğin teknolojilerini bugünden tasarlıyoruz. Mühendislik disiplinlerini bir araya getirerek projeler geliştiriyoruz.",
@@ -41,7 +41,7 @@ export const translations = {
     projects: {
       heading: "Projelerimiz",
       subtitle:
-        "Geliştirdiğimiz yerli ve milli teknolojilerle savunma sanayi ve haberleşme alanında yenilikçi çözümler sunuyoruz.",
+        "Geliştirdiğimiz yerli ve milli teknolojilerle savunma sanayii ve haberleşme alanında yenilikçi çözümler sunuyoruz.",
       cta: "Detayları Gör →",
       status: "Durum:",
       year: "Yıl:",
@@ -80,7 +80,7 @@ export const translations = {
       messageMax: "Mesaj alanı maksimum 300 karakter olabilir",
       sentOk: "Mesajınız başarılı şekilde gönderildi.",
       sendError:
-        "Mesajınız gönderilirken bir hata oluştu.Daha sonra tekrar deneyin.",
+        "Mesajınız gönderilirken bir hata oluştu. Daha sonra tekrar deneyin.",
     },
     team: {
       heading: "Ekibimiz",

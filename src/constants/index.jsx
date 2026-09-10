@@ -90,7 +90,7 @@ export const achievements = pa([
       en: "UDHAM R&D Idea Competition",
     },
     desc: {
-      tr: "T.C. Ulaştırma ve Altyapı Bakanlığı (UDHAM) tarafından düzenlenen '3. Ulaşan ve Erişen Türkiye 2053 Üniversiteler Arası Ar-Ge Fikir Yarışması' kapsamında, Ergenekon R&D Team olarak Haberleşme alanında büyük bir başarıya imza attık. 65 üniversiteden 200 projenin yarıştığı organizasyonda; 'KUANT-US: Kuantum Dirençli, Otonom ve Donanım Uyumlu Uydu Güvenliği Sistemi' başlıklı projemizle 'En Verimli' kategorisinde Mansiyon Ödülü’ne layık görüldük. Ulusal ölçekteki bu prestijli yarışmada, kuantum sonrası siber güvenlik ve uydu teknolojileri üzerine geliştirdiğimiz yenilikçi çözümümüzle üniversitemizi ve takımımızı başarıyla temsil ettik.",
+      tr: "T.C. Ulaştırma ve Altyapı Bakanlığı (UDHAM) tarafından düzenlenen '3. Ulaşan ve Erişen Türkiye 2053 Üniversiteler Arası Ar-Ge Fikir Yarışması' kapsamında, Ergenekon R&D Team olarak Haberleşme alanında büyük bir başarıya imza attık. 65 üniversiteden 200 projenin yarıştığı organizasyonda; 'KUANT-US: Kuantum Dirençli, Otonom ve Donanım Uyumlu Uydu Güvenliği Sistemi' başlıklı projemizle 'En Verimli' kategorisinde Mansiyon Ödülüne layık görüldük. Ulusal ölçekteki bu prestijli yarışmada, kuantum sonrası siber güvenlik ve uydu teknolojileri üzerine geliştirdiğimiz yenilikçi çözümümüzle üniversitemizi ve takımımızı başarıyla temsil ettik.",
       en: "Within the '3rd Reaching and Accessing Türkiye 2053 Inter-University R&D Idea Competition' organized by the Republic of Türkiye Ministry of Transport and Infrastructure (UDHAM), we achieved a major success in the field of Communications as Ergenekon R&D Team. In an event where 200 projects from 65 universities competed, our project 'KUANT-US: Quantum-Resistant, Autonomous and Hardware-Compatible Satellite Security System' was awarded an Honorable Mention in the 'Most Efficient' category. In this prestigious national competition, we successfully represented our university and team with our innovative solution on post-quantum cyber security and satellite technologies.",
     },
     mainImage: "/oduller/UDHAM_odul.jpeg",
@@ -163,7 +163,7 @@ export const achievements = pa([
     title: { tr: "BURKAY Hava Savunma", en: "BURKAY Air Defense" },
     link: "/idef",
     desc: {
-      tr: "TEKNOFEST Hava Savunma Sistemleri Yarışması kapsamında geliştirdiğimiz yerli ve milli hava savunma sistemi projemiz BURKAY; Yapay Zeka Destekli Hedef Tespiti ve Tam Otonom Lazer Güdüm kabiliyetleriyle donatılmıştır. Kritik Tasarım Raporu (KTR) sürecini başarıyla tamamlayan projemiz; ayrıca dünyanın en prestijli savunma sanayi fuarlarından biri olan IDEF'25 Uluslararası Savunma Sanayii Fuarı'na kabul edilmiştir. Fuar süresince açtığımız standımızda; geliştirdiğimiz çözümleri ve savunma teknolojileri vizyonumuzu uluslararası profesyonellere sunduk.",
+      tr: "TEKNOFEST Hava Savunma Sistemleri Yarışması kapsamında geliştirdiğimiz yerli ve milli hava savunma sistemi projemiz BURKAY; Yapay Zeka Destekli Hedef Tespiti ve Tam Otonom Lazer Güdüm kabiliyetleriyle donatılmıştır. Kritik Tasarım Raporu (KTR) sürecini başarıyla tamamlayan projemiz; ayrıca dünyanın en prestijli savunma sanayii fuarlarından biri olan IDEF'25 Uluslararası Savunma Sanayii Fuarı'na kabul edilmiştir. Fuar süresince açtığımız standımızda; geliştirdiğimiz çözümleri ve savunma teknolojileri vizyonumuzu uluslararası profesyonellere sunduk.",
       en: "BURKAY, our indigenous and national air defense system project developed within the TEKNOFEST Air Defense Systems Competition, is equipped with AI-Assisted Target Detection and Fully Autonomous Laser Guidance capabilities. Having successfully completed the Critical Design Report (CDR) process, our project was also accepted to IDEF'25 International Defense Industry Fair, one of the world's most prestigious defense industry fairs. At our booth during the fair, we presented our solutions and our defense technology vision to international professionals.",
     },
     mainImage: "/oduller/idef_burkay.JPG",
@@ -208,7 +208,7 @@ export const news = [
       en: "We Were at the IDEF'25 International Defense Industry Fair",
     },
     summary: {
-      tr: "Dünyanın en prestijli savunma sanayi fuarlarından biri olan IDEF'25'te standımızı açtık; yerli ve milli projelerimizi global katılımcılarla buluşturduk.",
+      tr: "Dünyanın en prestijli savunma sanayii fuarlarından biri olan IDEF'25'te standımızı açtık; yerli ve milli projelerimizi global katılımcılarla buluşturduk.",
       en: "We set up our booth at IDEF'25, one of the world's most prestigious defense industry fairs, and brought our indigenous and national projects together with global participants.",
     },
     to: "/idef",
@@ -268,8 +268,8 @@ const ROLES = {
   audit: { tr: "Denetim Kurulu Üyesi", en: "Audit Board Member" },
   management: { tr: "Yönetim Kurulu Üyesi", en: "Management Board Member" },
   developer: { tr: "Geliştirici", en: "Developer" },
-  mechanical: { tr: "Mekanik Mühendis", en: "Mechanical Engineer" },
-  electronics: { tr: "Elektronik Mühendis", en: "Electronics Engineer" },
+  mechanical: { tr: "Mekanik Mühendisi", en: "Mechanical Engineer" },
+  electronics: { tr: "Elektronik Mühendisi", en: "Electronics Engineer" },
 };
 
 export const teamStructure = pa({
@@ -591,14 +591,14 @@ export const activities = pa({
       en: "Snapshots from our technology showcase and industry meetings at the International Defense Industry Fair.",
     },
     heroImage: "/oduller/idef_burkay.JPG",
-    heroTitle: { tr: "Ergenekon Sahne'de", en: "Ergenekon on Stage" },
+    heroTitle: { tr: "Ergenekon Sahnede", en: "Ergenekon on Stage" },
     heroDesc: {
-      tr: "Dünyanın en prestijli savunma sanayi fuarlarından biri olan IDEF'25'te, yerli ve milli projelerimizi global katılımcılarla buluşturduk.",
+      tr: "Dünyanın en prestijli savunma sanayii fuarlarından biri olan IDEF'25'te, yerli ve milli projelerimizi global katılımcılarla buluşturduk.",
       en: "At IDEF'25, one of the world's most prestigious defense industry fairs, we brought our indigenous and national projects together with global participants.",
     },
     aboutTitle: { tr: "IDEF Nedir?", en: "What is IDEF?" },
     aboutText: {
-      tr: "IDEF (Uluslararası Savunma Sanayii Fuarı), Türkiye'de düzenlenen ve dünyanın en büyük savunma sanayi fuarlarından biri olan prestijli bir organizasyondur. Türk Silahlı Kuvvetlerini Güçlendirme Vakfı yönetim ve sorumluluğunda gerçekleştirilen fuar; savunma, güvenlik, denizcilik, havacılık ve uzay sanayii alanlarında en son teknolojilerin sergilendiği küresel bir buluşma noktasıdır.",
+      tr: "IDEF (Uluslararası Savunma Sanayii Fuarı), Türkiye'de düzenlenen ve dünyanın en büyük savunma sanayii fuarlarından biri olan prestijli bir organizasyondur. Türk Silahlı Kuvvetlerini Güçlendirme Vakfı yönetim ve sorumluluğunda gerçekleştirilen fuar; savunma, güvenlik, denizcilik, havacılık ve uzay sanayii alanlarında en son teknolojilerin sergilendiği küresel bir buluşma noktasıdır.",
       en: "IDEF (International Defense Industry Fair) is a prestigious organization held in Türkiye and one of the largest defense industry fairs in the world. Held under the management and responsibility of the Turkish Armed Forces Foundation, the fair is a global meeting point where the latest technologies in the fields of defense, security, maritime, aviation and space industries are exhibited.",
     },
     aboutLogo: "/logolar/idef_logo.png",
@@ -654,12 +654,12 @@ export const activities = pa({
       en: "Most Original Software Award",
     },
     heroDesc: {
-      tr: "Turkcell ve TEKNOFEST iş birliğinde düzenlenen 5G Konumlandırma Yarışması'nda, KIZILYEL projemizle geliştirdiğimiz yapay zekâ tabanlı yerli konumlandırma yazılımını sahaya taşıdık.",
+      tr: "Turkcell ve TEKNOFEST iş birliğinde düzenlenen 5G Konumlandırma Yarışması'nda, KIZILYEL projemizle geliştirdiğimiz yapay zeka tabanlı yerli konumlandırma yazılımını sahaya taşıdık.",
       en: "At the 5G Positioning Competition organized in collaboration with Turkcell and TEKNOFEST, we brought our AI-based indigenous positioning software developed with the KIZILYEL project into the field.",
     },
     aboutTitle: { tr: "Yarışma Nedir?", en: "What is the Competition?" },
     aboutText: {
-      tr: "Turkcell ve TEKNOFEST iş birliğinde, T3 Vakfı desteğiyle düzenlenen 5G Konumlandırma Yarışması; 5G test ağı verilerini kullanarak yapay zekâ temelli konumlandırma algoritmaları geliştiren takımları bir araya getiren ulusal bir teknoloji yarışmasıdır. Yarışma, konumlandırma teknolojilerinde yerli ve millî çözümler üreterek dışa bağımlılığı azaltmayı hedeflemektedir.",
+      tr: "Turkcell ve TEKNOFEST iş birliğinde, T3 Vakfı desteğiyle düzenlenen 5G Konumlandırma Yarışması; 5G test ağı verilerini kullanarak yapay zeka temelli konumlandırma algoritmaları geliştiren takımları bir araya getiren ulusal bir teknoloji yarışmasıdır. Yarışma, konumlandırma teknolojilerinde yerli ve milli çözümler üreterek dışa bağımlılığı azaltmayı hedeflemektedir.",
       en: "The 5G Positioning Competition, organized in collaboration with Turkcell and TEKNOFEST and supported by the T3 Foundation, is a national technology competition that brings together teams developing AI-based positioning algorithms using 5G test network data. The competition aims to reduce foreign dependency by producing indigenous and national solutions in positioning technologies.",
     },
     aboutLogo: "/logolar/turkcell_logo.png",
@@ -696,7 +696,7 @@ export const activities = pa({
       {
         title: { tr: "Gazi Üniversitesi Haberi", en: "Gazi University News" },
         desc: {
-          tr: "Gazi Üniversitesi resmî haber bülteninde yarışma başarımızın duyurusu.",
+          tr: "Gazi Üniversitesi resmi haber bülteninde yarışma başarımızın duyurusu.",
           en: "Announcement of our competition success in Gazi University's official news bulletin.",
         },
         label: { tr: "Haberi Oku", en: "Read the News" },
@@ -716,7 +716,7 @@ export const activities = pa({
     ],
     sourcesTitle: { tr: "Basında Biz", en: "In the Press" },
     sourcesSubtitle: {
-      tr: "Başarımızın ulusal basında ve resmî kaynaklardaki yankısı",
+      tr: "Başarımızın ulusal basında ve resmi kaynaklardaki yankısı",
       en: "The reflection of our success in the national press and official sources",
     },
     galleryTitle: {
