@@ -3,7 +3,7 @@ import useDocumentMeta from "../hooks/useDocumentMeta";
 import Loading from "../components/ui/Loading";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const FORM_URL = "https://form.gazisiber.org/forms/alim-formu";
+const FORM_URL = "https://linktr.ee/gazisiber";
 
 const BizeKatil = () => {
   const { t } = useLanguage();
